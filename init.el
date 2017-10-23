@@ -105,6 +105,7 @@
 (require 'init-toml)
 (require 'init-yaml)
 (require 'init-docker)
+(require 'init-codestyle)
 (maybe-require-package 'terraform-mode)
 
 (require 'init-paredit)
