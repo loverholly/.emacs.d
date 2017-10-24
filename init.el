@@ -142,6 +142,7 @@ Return the updated `exec-path'"
 (require 'init-ledger)
 (require 'init-nyan)
 (require 'init-yasnippet)
+(require 'init-undotree)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
