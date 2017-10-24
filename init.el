@@ -144,6 +144,7 @@ Return the updated `exec-path'"
 (require 'init-yasnippet)
 (require 'init-undotree)
 (require 'init-viewlargefile)
+(require 'init-helm)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
