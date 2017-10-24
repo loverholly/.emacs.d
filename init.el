@@ -14,6 +14,9 @@
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
+(defconst windowsp (eq system-type 'windows-nt))
+(when (and windowsp (setenv "PATH" (concat (expand-file-name "~/bin") path-separator (getenv "PATH")))))
+(when (and windowsp (setq exec-path (cons (expand-file-name "~/bin") exec-path))))
 
 ;;----------------------------------------------------------------------------
 ;; Adjust garbage collection thresholds during startup, and thereafter
