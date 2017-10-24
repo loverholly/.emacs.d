@@ -140,6 +140,7 @@ Return the updated `exec-path'"
 (require 'init-folding)
 (require 'init-dash)
 (require 'init-ledger)
+(require 'init-nyan)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
