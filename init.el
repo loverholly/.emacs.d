@@ -141,6 +141,7 @@ Return the updated `exec-path'"
 (require 'init-dash)
 (require 'init-ledger)
 (require 'init-nyan)
+(require 'init-yasnippet)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
