@@ -128,7 +128,11 @@
 ;;----------------------------------------------------------------------------
 ;; Show matching parens
 ;;----------------------------------------------------------------------------
+(electric-pair-mode t)
 (add-hook 'after-init-hook 'show-paren-mode)
+(setq show-paren-style 'parenthesis)
+;; 美化显示符号（elisp），比如lambda会显示为λ
+(prettify-symbols-mode)
 
 ;;----------------------------------------------------------------------------
 ;; Expand region
