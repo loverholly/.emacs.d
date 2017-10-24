@@ -143,6 +143,7 @@ Return the updated `exec-path'"
 (require 'init-nyan)
 (require 'init-yasnippet)
 (require 'init-undotree)
+(require 'init-viewlargefile)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
