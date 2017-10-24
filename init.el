@@ -15,8 +15,22 @@
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 (defconst windowsp (eq system-type 'windows-nt))
-(when (and windowsp (setenv "PATH" (concat (expand-file-name "~/bin") path-separator (getenv "PATH")))))
-(when (and windowsp (setq exec-path (cons (expand-file-name "~/bin") exec-path))))
+
+(defun prepend-to-exec-path (path)
+  "prepend the path to the emacs intenral `exec-path' and \"PATH\" env variable.
+Return the updated `exec-path'"
+  (setenv "PATH" (concat (expand-file-name path)
+                         path-separator
+                         (getenv "PATH")))
+  (setq exec-path
+        (cons (expand-file-name path)
+              exec-path)))
+
+(when windowsp
+  (mapc #'prepend-to-exec-path
+        (reverse
+         (list
+          "C:/msys32/usr/bin"))))
 
 ;;----------------------------------------------------------------------------
 ;; Adjust garbage collection thresholds during startup, and thereafter
