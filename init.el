@@ -30,6 +30,7 @@ Return the updated `exec-path'"
   (mapc #'prepend-to-exec-path
         (reverse
          (list
+          "~/.emacs.d/extra-bin/global" ;;windows环境下必须用global这个下面的东西
           "C:/msys32/usr/bin"))))
 
 ;;----------------------------------------------------------------------------
