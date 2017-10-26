@@ -70,7 +70,6 @@ Return the updated `exec-path'"
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-themes)
-(require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-dired)
 (require 'init-isearch)
@@ -92,37 +91,16 @@ Return the updated `exec-path'"
 (require 'init-editing-utils)
 (require 'init-whitespace)
 
-(require 'init-vc)
-(require 'init-darcs)
 (require 'init-git)
 (require 'init-github)
-
 (require 'init-projectile)
-
 (require 'init-compile)
-;;(require 'init-crontab)
 (require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
-;; (require 'init-erlang)
-;; (require 'init-javascript)
-;; (require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
-;; (require 'init-html)
-;; (require 'init-css)
-;; (require 'init-haml)
-;; (require 'init-http)
 (require 'init-python-mode)
-;; (require 'init-haskell)
-;; (require 'init-elm)
-;; (require 'init-ruby-mode)
-;; (require 'init-rails)
-;; (require 'init-sql)
-;; (require 'init-rust)
-;; (require 'init-toml)
-;; (require 'init-yaml)
-;; (require 'init-docker)
 (require 'init-codestyle)
 (maybe-require-package 'terraform-mode)
 
@@ -140,7 +118,6 @@ Return the updated `exec-path'"
 
 (require 'init-folding)
 (require 'init-dash)
-(require 'init-ledger)
 (require 'init-nyan)
 (require 'init-yasnippet)
 (require 'init-undotree)
@@ -149,8 +126,6 @@ Return the updated `exec-path'"
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
-;; (require-package 'lua-mode)
-;; (require-package 'htmlize)
 (require-package 'dsvn)
 (when *is-a-mac*
   (require-package 'osx-location))
