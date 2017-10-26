@@ -43,7 +43,7 @@
                 (dired-regexp-history     . 20)
                 (extended-command-history . 30)
                 (face-name-history        . 20)
-                (file-name-history        . 100)
+                (file-name-history        . 20)
                 (grep-find-history        . 30)
                 (grep-history             . 30)
                 (ido-buffer-history       . 100)
