@@ -93,7 +93,6 @@ Return the updated `exec-path'"
 
 (require 'init-git)
 (require 'init-github)
-(require 'init-projectile)
 (require 'init-compile)
 (require 'init-textile)
 (require 'init-markdown)
@@ -107,8 +106,6 @@ Return the updated `exec-path'"
 (require 'init-paredit)
 (require 'init-lisp)
 (require 'init-slime)
-(require 'init-clojure)
-(require 'init-clojure-cider)
 (require 'init-common-lisp)
 
 (when *spell-check-support-enabled*
@@ -117,7 +114,6 @@ Return the updated `exec-path'"
 (require 'init-misc)
 
 (require 'init-folding)
-(require 'init-dash)
 (require 'init-nyan)
 (require 'init-yasnippet)
 (require 'init-undotree)
