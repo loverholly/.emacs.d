@@ -316,5 +316,31 @@ With arg N, insert N newlines."
 (after-load 'guide-key
   (diminish 'guide-key-mode))
 
+(defun indent-buffer ()
+  "Indent the whole buffer."
+  (interactive)
+  (save-excursion
+	(indent-region (point-min) (point-max) nil)))
+
+(global-set-key (kbd "<f7>") 'indent-buffer)
+
+(defun refresh-file ()
+  (interactive)
+  (revert-buffer t(not (buffer-modified-p)) t))
+
+(global-set-key (kbd "<f5>") 'refresh-file)
+
+(defun qiang-comment-dwim-line (&optional arg)
+  (interactive "*P")
+  (comment-normalize-vars)
+  (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
+	  (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+	(comment-dwim arg)))
+(global-set-key "\M-;" 'qiang-comment-dwim-line)
+
+(global-set-key (kbd "RET") 'newline-and-indent)  ; automatically indent when press RET
+(global-set-key (kbd "M-g")  'goto-line)
+
+(global-set-key [f8] 'shell)
 
 (provide 'init-editing-utils)
