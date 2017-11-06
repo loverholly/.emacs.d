@@ -7,12 +7,11 @@
 ;;！：切换到该状态时会自动增加时间戳
 ;;@ ：切换到该状态时要求输入文字说明
 ;;如果同时设定@和！，使用“@/!”
-(setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
-              (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
-              (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
-      org-todo-repeat-to-state "NEXT")
-
+ (setq org-todo-keywords
+           '((sequence "TODO(t@/!)" "|" "CANCELED(c@/!)" "DELAY(l@/!)" "ABORT(a@/!)" "DONE(d@/!)")
+             (sequence "REPORT(r@)" "BUG(b@)" "KNOWNCAUSE(k)" "|" "FIXED(f@)")
+             ))
+	     
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
 
