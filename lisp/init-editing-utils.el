@@ -11,7 +11,7 @@
 ;; Some basic preferences
 ;;----------------------------------------------------------------------------
 (setq-default
- blink-cursor-interval 0.5
+ blink-cursor-interval 0.4
  bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
  buffers-menu-max-size 30
  case-fold-search t
@@ -27,13 +27,6 @@
  c-default-style "linux"
  make-backup-files nil
  mouse-yank-at-point t
- global-visual-line-mode 1
- backup-by-copying 1
- auto-save-default nil
- make-backup-files nil
- save-place-mode 1
- show-paren-mode 1
- global-hl-line-mode 1
  save-interprogram-paste-before-kill t
  scroll-preserve-screen-position 'always
  set-mark-command-repeat-pop t
@@ -48,10 +41,8 @@
 (add-hook 'after-init-hook 'transient-mark-mode)
 
 
-(when (maybe-require-package 'dynamic-spaces)
-  (dynamic-spaces-global-mode))
 
- ;;; A simple visible bell which works in all terminal types
+ ;;; A simple visible bell which works in all terminal types
 
 (defun sanityinc/flash-mode-line ()
   (invert-face 'mode-line)
@@ -96,8 +87,8 @@
 
 
 
-;; (when (fboundp 'global-prettify-symbols-mode)
-;; (add-hook 'after-init-hook 'global-prettify-symbols-mode))
+(when (fboundp 'global-prettify-symbols-mode)
+  (add-hook 'after-init-hook 'global-prettify-symbols-mode))
 
 
 (require-package 'undo-tree)
