@@ -31,7 +31,8 @@ Return the updated `exec-path'"
         (reverse
          (list
           "~/.emacs.d/extra-bin/global" ;;windows环境下必须用global这个下面的东西
-          "C:/msys32/usr/bin"))))
+          "C:/Program Files/Git/mingw64/bin"
+          "C:/Program Files/Git/urs/bin"))))
 
 ;;----------------------------------------------------------------------------
 ;; Adjust garbage collection thresholds during startup, and thereafter
