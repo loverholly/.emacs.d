@@ -117,7 +117,6 @@ Return the updated `exec-path'"
 (require 'init-folding)
 (require 'init-nyan)
 (require 'init-yasnippet)
-(require 'init-undotree)
 (require 'init-viewlargefile)
 (require 'init-helm)
 ;; Extra packages which don't require any configuration
