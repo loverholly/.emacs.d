@@ -92,8 +92,10 @@ Return the updated `exec-path'"
 (require 'init-editing-utils)
 (require 'init-whitespace)
 
+(require 'init-vc)
 (require 'init-git)
 (require 'init-github)
+(require 'init-projectile)
 (require 'init-compile)
 (require 'init-textile)
 (require 'init-markdown)
@@ -115,6 +117,8 @@ Return the updated `exec-path'"
 (require 'init-misc)
 
 (require 'init-folding)
+(require 'init-dash)
+(require 'init-ledger)
 (require 'init-nyan)
 (require 'init-yasnippet)
 (require 'init-viewlargefile)
