@@ -30,7 +30,7 @@ Return the updated `exec-path'"
   (mapc #'prepend-to-exec-path
         (reverse
          (list
-          "~/.emacs.d/extra-bin/global" ;;windowsç¯å¢ƒä¸‹å¿…é¡»ç”¨globalè¿™ä¸ªä¸‹é¢çš„ä¸œè¥¿
+          "~/.emacs.d/extra-bin/global" ;;windows»·¾³ÏÂ±ØĞëÓÃglobalÕâ¸öÏÂÃæµÄ¶«Î÷
           "C:/Program Files/Git/mingw64/bin"
           "C:/Program Files/Git/urs/bin"))))
 
@@ -117,8 +117,6 @@ Return the updated `exec-path'"
 (require 'init-misc)
 
 (require 'init-folding)
-(require 'init-dash)
-(require 'init-ledger)
 (require 'init-nyan)
 (require 'init-yasnippet)
 (require 'init-viewlargefile)
