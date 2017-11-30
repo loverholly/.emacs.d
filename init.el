@@ -103,7 +103,6 @@ Return the updated `exec-path'"
 (require 'init-org)
 (require 'init-nxml)
 (require 'init-python-mode)
-(require 'init-codestyle)
 (maybe-require-package 'terraform-mode)
 
 (require 'init-paredit)
