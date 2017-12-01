@@ -27,6 +27,13 @@
  c-default-style "linux"
  make-backup-files nil
  mouse-yank-at-point t
+ global-visual-line-mode 1
+ backup-by-copying 1
+ auto-save-default nil
+ make-backup-files nil
+ save-place-mode 1
+ show-paren-mode 1
+ global-hl-line-mode 1
  save-interprogram-paste-before-kill t
  scroll-preserve-screen-position 'always
  set-mark-command-repeat-pop t
