@@ -14,7 +14,7 @@
   (setq w32-enable-synthesized-fonts t)
   (set-default-coding-systems 'gb2312)
   (set-terminal-coding-system 'utf-8)
-  (set-selection-coding-system (if (eq system-type 'windows-nt) 'gb2312 'utf-8))
+  (set-selection-coding-system (if (eq system-type 'windows-nt) 'gb2312  'utf-8 ))
   (prefer-coding-system 'utf-8)
   (prefer-coding-system 'cp950)
   (prefer-coding-system 'gb2312)
@@ -26,6 +26,8 @@
   (prefer-coding-system 'utf-8-dos)
   (prefer-coding-system 'utf-8-unix))
 
-(set-fontset-font "fontset-default" 'unicode "DejaVu Sans Mono 14")
+;;使用默认的Curior New字体
+;;(set-fontset-font "fontset-default" 'unicode "Consolas 14")
+
 
 (provide 'init-locales)
