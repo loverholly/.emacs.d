@@ -62,11 +62,6 @@
 
 (add-hook 'org-mode-hook 'org-mode-my-init)
 
-;; 配置中英文无法对齐的问题
-(set-default-font "Microsoft Yahei 20")
-;; (set-fontset-font "fontset-default" 'unicode"WenQuanYi Bitmap Song 12") ;;for linux
-(set-fontset-font "fontset-default" 'unicode "宋体 20") ;; for windows
-
 ;; 设置org全局列表
 (setq org-agenda-list (list "~/.emacs.d/org"))
 (setq org-agenda-files (list "~/.emacs.d/org"))
