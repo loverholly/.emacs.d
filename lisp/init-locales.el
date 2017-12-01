@@ -26,6 +26,6 @@
   (prefer-coding-system 'utf-8-dos)
   (prefer-coding-system 'utf-8-unix))
 
-(set-fontset-font "fontset-default" 'unicode "WenQuanYi Micro Hei Mono 14")
+(set-fontset-font "fontset-default" 'unicode "DejaVu Sans Mono 12")
 
 (provide 'init-locales)
