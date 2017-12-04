@@ -30,9 +30,10 @@ Return the updated `exec-path'"
   (mapc #'prepend-to-exec-path
         (reverse
          (list
-          "~/.emacs.d/extra-bin/global" ;;windows»·¾³ÏÂ±ØĞëÓÃglobalÕâ¸öÏÂÃæµÄ¶«Î÷
-          "C:/Program Files/Git/mingw64/bin"
-          "C:/Program Files/Git/urs/bin"))))
+          "~/.emacs.d/extra-bin/global" ;;windowsç¯å¢ƒä¸‹å¿…é¡»ç”¨globalè¿™ä¸ªä¸‹é¢çš„ä¸œè¥¿
+          "C:/Program Files/Git/cmd"    ;è®¾ç½®gitå‘½ä»¤æ‰§è¡Œè·¯å¾„
+          "C:/Program Files/Git/bin"    ;;è®¾ç½®Gitçš„æ‰§è¡Œè·¯å¾„
+          "C:/Program Files/Git/usr/bin"))))  ;;è®¾ç½®ä¸ºgitä¸­çš„è·¯å¾„
 
 ;;----------------------------------------------------------------------------
 ;; Adjust garbage collection thresholds during startup, and thereafter
