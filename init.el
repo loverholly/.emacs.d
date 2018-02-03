@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: t -*-
+(setq debug-on-error t)
 
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
@@ -64,7 +65,6 @@ Return the updated `exec-path'"
 ;;----------------------------------------------------------------------------
 
 (require-package 'wgrep)
-(require-package 'project-local-variables)
 (require-package 'diminish)
 (require-package 'scratch)
 (require-package 'command-log-mode)
@@ -72,6 +72,7 @@ Return the updated `exec-path'"
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-themes)
+(require 'init-osx-keys)
 (require 'init-gui-frames)
 (require 'init-dired)
 (require 'init-isearch)
@@ -83,6 +84,7 @@ Return the updated `exec-path'"
 (require 'init-recentf)
 (require 'init-smex)
 (require 'init-ivy)
+;;(require 'init-helm)
 (require 'init-hippie-expand)
 (require 'init-company)
 (require 'init-windows)
@@ -94,10 +96,12 @@ Return the updated `exec-path'"
 (require 'init-whitespace)
 
 (require 'init-vc)
+(require 'init-darcs)
 (require 'init-git)
 (require 'init-github)
 (require 'init-projectile)
 (require 'init-compile)
+;;(require 'init-crontab)
 (require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
