@@ -109,7 +109,7 @@ Return the updated `exec-path'"
 (require 'init-csv)
 (require 'init-erlang)
 (require 'init-javascript)
-(require 'init-php)
+;; (require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
 (require 'init-html)
