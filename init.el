@@ -154,6 +154,7 @@ Return the updated `exec-path'"
 (require 'init-yasnippet)
 (require 'init-viewlargefile)
 (require 'init-helm)
+(require 'init-astyle)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
