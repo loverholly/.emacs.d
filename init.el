@@ -166,10 +166,6 @@ Return the updated `exec-path'"
 
 (when (maybe-require-package 'uptimes)
   (setq-default uptimes-keep-count 200)
-  ;; Temporary workaround for https://github.com/davep/uptimes.el/pull/4
-  (defadvice uptimes-save (around unlimit-print-length activate)
-    (let (print-length)
-      ad-do-it))
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
 
