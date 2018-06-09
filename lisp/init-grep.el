@@ -3,7 +3,7 @@
 ;;; redefine the default grep template;some times emacs for windows the arguments is wrong
 ;; (setq-default grep-find-template '[grep -nH --null "{}" ";"])
 (setq-default grep-use-null-device nil)
-(setq-default grep-command "grep  -nH --null ")
+(setq-default grep-command "grep  -nH ")
 
 (when *is-a-mac*
   (setq-default locate-command "mdfind"))
