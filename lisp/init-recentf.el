@@ -1,6 +1,6 @@
 (add-hook 'after-init-hook 'recentf-mode)
 (setq-default
- recentf-max-saved-items 20
+ recentf-max-saved-items 10
  recentf-exclude '("/tmp/" "/ssh:"))
 
 

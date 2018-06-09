@@ -166,7 +166,7 @@ Return the updated `exec-path'"
 (maybe-require-package 'dotenv-mode)
 
 (when (maybe-require-package 'uptimes)
-  (setq-default uptimes-keep-count 200)
+  (setq-default uptimes-keep-count 50)
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
 
