@@ -88,7 +88,7 @@ Return the updated `exec-path'"
 (require 'init-ivy)
 ;;(require 'init-helm)
 (require 'init-hippie-expand)
-(require 'init-company)
+;; (require 'init-company)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)
