@@ -35,6 +35,8 @@ Return the updated `exec-path'"
           "C:/Program Files/Git/cmd"    ;设置git命令执行路径
           "C:/Program Files/Git/bin"    ;;设置Git的执行路径
           "C:/Program Files/Git/usr/bin"))))  ;;设置为git中的路径
+;;; 设置在windows下的默认字体为这个，防止后面的显示整乱掉
+(when windowsp (set-frame-font "-outline-Inziu IosevkaCC Slab SC-normal-normal-normal-mono-19-*-*-*-c-*-fontset-auto1"))
 
 ;;----------------------------------------------------------------------------
 ;; Adjust garbage collection thresholds during startup, and thereafter
