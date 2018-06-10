@@ -32,7 +32,6 @@ Return the updated `exec-path'"
         (reverse
          (list
           "~/.emacs.d/extra-bin/global" ;;windows环境下必须用global这个下面的东西
-          "~/.emacs.d/extra-bin/clang"  ;;添加clang的额外调用程序
           "C:/Program Files/Git/cmd"    ;设置git命令执行路径
           "C:/Program Files/Git/bin"    ;;设置Git的执行路径
           "C:/Program Files/Git/usr/bin"))))  ;;设置为git中的路径
