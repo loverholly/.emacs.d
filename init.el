@@ -155,6 +155,7 @@ Return the updated `exec-path'"
 (require 'init-viewlargefile)
 (require 'init-helm)
 (require 'init-astyle)
+(require 'init-cppcheck)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
