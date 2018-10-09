@@ -15,19 +15,16 @@
   (set-default-coding-systems 'gb2312)
   (set-terminal-coding-system 'utf-8)
   (set-selection-coding-system (if (eq system-type 'windows-nt) 'gb2312  'utf-8 ))
-  (prefer-coding-system 'utf-8)
-  (prefer-coding-system 'cp950)
-  (prefer-coding-system 'gb2312)
-  (prefer-coding-system 'cp936)
-  (prefer-coding-system 'gb18030)
-  (setq-default pathname-coding-system 'gb2312)
-  (setq file-name-coding-system 'gb2312)
+  (setq default-buffer-file-coding-system 'gb2312)
   (prefer-coding-system 'utf-16)
   (prefer-coding-system 'utf-8-dos)
-  (prefer-coding-system 'utf-8-unix))
-
-;;使用默认的Curior New字体
-;;(set-fontset-font "fontset-default" 'unicode "Consolas 14")
+  (prefer-coding-system 'utf-8-unix)
+  (prefer-coding-system 'utf-8)
+  (prefer-coding-system 'cp950)
+  (prefer-coding-system 'cp936)
+  (prefer-coding-system 'gb2312)
+  (setq-default pathname-coding-system 'gb2312)
+  (setq file-name-coding-system 'gb2312))
 
 
 (provide 'init-locales)
