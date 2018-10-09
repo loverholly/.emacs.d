@@ -1,3 +1,14 @@
+(defadvice kill-ring-save (before slickcopy activate compile)
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+	 (list (line-beginning-position)
+		   (line-beginning-position 2)))))
+(defadvice kill-region (before slickcut activate compile)
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+	 (list (line-beginning-position)
+		   (line-beginning-position 2)))))
+
 (require-package 'unfill)
 
 (when (fboundp 'electric-pair-mode)
