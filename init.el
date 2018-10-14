@@ -152,7 +152,6 @@ Return the updated `exec-path'"
 ;; (require 'init-mu)
 (require 'init-ledger)
 (require 'init-yasnippet)
-(require 'init-viewlargefile)
 (require 'init-helm)
 (require 'init-astyle)
 (require 'init-cppcheck)
