@@ -1,14 +1,4 @@
-(defadvice kill-ring-save (before slickcopy activate compile)
-  (interactive
-   (if mark-active (list (region-beginning) (region-end))
-	 (list (line-beginning-position)
-		   (line-beginning-position 2)))))
-(defadvice kill-region (before slickcut activate compile)
-  (interactive
-   (if mark-active (list (region-beginning) (region-end))
-	 (list (line-beginning-position)
-		   (line-beginning-position 2)))))
-
+;; -*- lexical-binding: t -*-
 (require-package 'unfill)
 
 (when (fboundp 'electric-pair-mode)
@@ -127,7 +117,7 @@
 
 
 (when (maybe-require-package 'symbol-overlay)
-  (dolist (hook '(prog-mode-hook html-mode-hook css-mode-hook yaml-mode-hook conf-mode-hook))
+  (dolist (hook '(prog-mode-hook html-mode-hook yaml-mode-hook conf-mode-hook))
     (add-hook hook 'symbol-overlay-mode))
   (after-load 'symbol-overlay
     (diminish 'symbol-overlay-mode)
