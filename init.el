@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-(setq debug-on-error nil)
+(setq debug-on-error t)
 
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
@@ -31,12 +31,12 @@ Return the updated `exec-path'"
   (mapc #'prepend-to-exec-path
         (reverse
          (list
-          "~/.emacs.d/extra-bin/global" ;;windowsç¯å¢ƒä¸‹å¿…é¡»ç”¨globalè¿™ä¸ªä¸‹é¢çš„ä¸œè¥¿
-          "C:/Program Files/Git/cmd"    ;è®¾ç½®gitå‘½ä»¤æ‰§è¡Œè·¯å¾„
-          "C:/Program Files/Git/bin"    ;;è®¾ç½®Gitçš„æ‰§è¡Œè·¯å¾„
-          "C:/Program Files/Git/usr/bin"))))  ;;è®¾ç½®ä¸ºgitä¸­çš„è·¯å¾„
-;;; è®¾ç½®åœ¨windowsä¸‹çš„é»˜è®¤å­—ä½“ä¸ºè¿™ä¸ªï¼Œé˜²æ­¢åé¢çš„æ˜¾ç¤ºæ•´ä¹±æ‰
-(when windowsp (set-frame-font "-outline-å®‹ä½“-normal-normal-normal-*-19-*-*-*-p-*-fontset-auto2"))
+          "~/.emacs.d/extra-bin/global" ;;windows»·¾³ÏÂ±ØĞëÓÃglobalÕâ¸öÏÂÃæµÄ¶«Î÷
+          "C:/Program Files/Git/cmd"    ;ÉèÖÃgitÃüÁîÖ´ĞĞÂ·¾¶
+          "C:/Program Files/Git/bin"    ;;ÉèÖÃGitµÄÖ´ĞĞÂ·¾¶
+          "C:/Program Files/Git/usr/bin"))))  ;;ÉèÖÃÎªgitÖĞµÄÂ·¾¶
+;;; ÉèÖÃÔÚwindowsÏÂµÄÄ¬ÈÏ×ÖÌåÎªÕâ¸ö£¬·ÀÖ¹ºóÃæµÄÏÔÊ¾ÕûÂÒµô
+(when windowsp (set-frame-font "-outline-ËÎÌå-normal-normal-normal-*-19-*-*-*-p-*-fontset-auto2"))
 
 ;;----------------------------------------------------------------------------
 ;; Adjust garbage collection thresholds during startup, and thereafter
@@ -99,8 +99,8 @@ Return the updated `exec-path'"
 
 (require 'init-vc)
 (require 'init-darcs)
-;; (require 'init-git)
-;; (require 'init-github)
+(require 'init-git)
+(require 'init-github)
 
 (require 'init-projectile)
 
@@ -111,7 +111,7 @@ Return the updated `exec-path'"
 (require 'init-csv)
 (require 'init-erlang)
 (require 'init-javascript)
-;; (require 'init-php)
+(require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
 (require 'init-html)
@@ -168,17 +168,18 @@ Return the updated `exec-path'"
 (maybe-require-package 'dotenv-mode)
 
 (when (maybe-require-package 'uptimes)
-  (setq-default uptimes-keep-count 50)
+  (setq-default uptimes-keep-count 200)
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
-(require 'server)
-(unless (server-running-p)
-  (server-start))
-
+(add-hook 'after-init-hook
+          (lambda ()
+            (require 'server)
+            (unless (server-running-p)
+              (server-start))))
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
