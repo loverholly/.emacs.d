@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t -*-
-(setq debug-on-error t)
+(setq debug-on-error nil)
 
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
@@ -31,12 +31,10 @@ Return the updated `exec-path'"
   (mapc #'prepend-to-exec-path
         (reverse
          (list
-          "~/.emacs.d/extra-bin/global" ;;windows环境下必须用global这个下面的东西
-          "C:/Program Files/Git/cmd"    ;设置git命令执行路径
-          "C:/Program Files/Git/bin"    ;;设置Git的执行路径
-          "C:/Program Files/Git/usr/bin"))))  ;;设置为git中的路径
-;;; 设置在windows下的默认字体为这个，防止后面的显示整乱掉
-;;(when windowsp (set-frame-font "-outline-宋体-normal-normal-normal-*-19-*-*-*-p-*-fontset-auto2"))
+          "~/.emacs.d/extra-bin/global" ;;windows enviroments must set it
+          "C:/Program Files/Git/cmd"
+          "C:/Program Files/Git/bin"
+          "C:/Program Files/Git/usr/bin"))))
 
 ;;----------------------------------------------------------------------------
 ;; Adjust garbage collection thresholds during startup, and thereafter
