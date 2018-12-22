@@ -7,13 +7,15 @@
 ;;！：切换到该状态时会自动增加时间戳
 ;;@ ：切换到该状态时要求输入文字说明
 ;;如果同时设定@和！，使用“@/!”
- (setq org-todo-keywords
-           '((sequence "TODO(t@/!)" "|" "CANCELED(c@/!)" "DELAY(l@/!)" "ABORT(a@/!)" "DONE(d@/!)")
-             (sequence "REPORT(r@)" "BUG(b@)" "KNOWNCAUSE(k)" "|" "FIXED(f@)")
-             ))
-	     
+(setq org-todo-keywords
+      '((sequence "TODO(t@/!)" "|" "CANCELED(c@/!)" "DELAY(l@/!)" "ABORT(a@/!)" "DONE(d@/!)")
+        (sequence "REPORT(r@)" "BUG(b@)" "KNOWNCAUSE(k)" "|" "FIXED(f@)")
+        ))
+
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
+(define-key global-map (kbd "C-c c") 'org-capture)
+(define-key global-map (kbd "C-c b") 'org-switchb)
 
 ;; Various preferences
 (setq org-log-done t
@@ -29,6 +31,15 @@
 ;; 设置org中语法高亮
 (setq org-src-fontify-natively t)
 
+;; 设置org导出时在文档前面生成一个章节目录表
+(setq org-export-with-toc t)
+
+;; 设置可以转换换行符
+(setq org-export-preserve-breaks t)
+
+;; 设置导出时生成对应的目录层级,最大深度为6级
+(setq org-export-with-section-numbers 6)
+
 ;; 设置如果子任务没有完成，那么父任务不能结束
 (setq org-enforce-todo-dependencies t)
 
@@ -38,7 +49,6 @@
 
 ;; 设置org提醒功能
 (setq org-agenda-to-appt t)
-
 
 ;; 设置一个全局的org标签
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("@happy" . ?p) ("@friend" . ?f) ("@study" . ?s) ("@note" . ?n)))
@@ -50,12 +60,11 @@
 ;; (set-face-attribute 'org-level-4 nil :height 1.2 :bold t)
 
 ;; 禁用下划线转义
-(setq-default org-use-sub-superscripts nil)
+(setq-default org-export-with-sub-superscripts nil)
 
 ;; 不用频繁切换输入法了，中文状态也可以输入*
 (defun org-mode-my-init ()
-  ; ......
-  (define-key org-mode-map (kbd "×") (kbd "*"))
+  (define-key org-mode-map (kbd "x") (kbd "*"))
   (define-key org-mode-map (kbd "－") (kbd "-"))
   )
 
@@ -65,19 +74,12 @@
 (setq org-agenda-list (list "~/.emacs.d/org"))
 (setq org-agenda-files (list "~/.emacs.d/org"))
 
-;; 设置org快捷键
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-
 ;; 默认将所有的org indent都打开
 (setq org-startup-indented t)
 
 ;; 配置显示日历节假日
 (setq mark-holidays-in-calendar t)
 (setq org-support-shift-select t)
-(global-set-key (kbd "C-c c") 'org-capture)
 
 (let ((active-project-match "-INBOX/PROJECT"))
 
@@ -172,7 +174,6 @@
   (org-clock-persistence-insinuate))
 (setq org-clock-persist t)
 (setq org-clock-in-resume t)
-
 ;; Save clock data and notes in the LOGBOOK drawer
 (setq org-clock-into-drawer t)
 ;; Save state changes in the LOGBOOK drawer
@@ -204,7 +205,7 @@
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
   (let (org-log-done org-log-states)   ; turn off logging
     (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
-    
+
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
 ;; 设置org refile
@@ -213,6 +214,37 @@
 
 ;; 打开日程表
 (org-agenda-list t)
+
+;; 设置日程表的查看最大时间为21天
+(setq org-agenda-ndays 21)
+(setq org-agenda-include-diary t)
+(setq mark-holidays-in-calendar t)
+
+(setq my-holidays
+      '(;; 公历节日
+        (holiday-fixed 1 1   "元旦节")
+        (holiday-fixed 2 14  "情人节")
+        (holiday-fixed 5 1   "劳动节")
+        (holiday-fixed 9 10  "教师节")
+        (holiday-fixed 10 1  "国庆节")
+        (holiday-float 6 0 3 "父亲节")
+        ;; 农历节日
+        (holiday-lunar 1 1   "春节"       0)
+        (holiday-lunar 1 15  "元宵节"     0)
+        (holiday-solar-term  "清明节"      )
+        (holiday-lunar 5 5   "端午节"     0)
+        (holiday-lunar 7 7   "七夕情人节" 0)
+        (holiday-lunar 8 15  "中秋节"     0)
+        ;; 纪念日
+        (holiday-lunar 10 15 "女儿生日"   0)
+        (holiday-lunar 11 05 "老婆生日"   0)
+        (holiday-lunar 04 14 "我的生日"   0)
+        (holiday-lunar 02 05 "父亲生日"   0)
+        (holiday-lunar 07 01 "母亲生日"   0)
+        (holiday-lunar 03 14 "姐姐生日"   0)
+        ))
+(setq calendar-holidays my-holidays)  ;只显示我定制的节假日
+
 ;; 关闭其他窗口
 (delete-other-windows)
 (provide 'init-org)
