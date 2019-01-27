@@ -130,7 +130,7 @@ Return the updated `exec-path'"
 ;;(require 'init-nix)
 (maybe-require-package 'nginx-mode)
 
-(require 'init-paredit)
+;;(require 'init-paredit) ;;this is for lisp auto paredit, but i was a c/c++ coder
 (require 'init-lisp)
 (require 'init-slime)
 (require 'init-clojure)
