@@ -97,6 +97,7 @@
 
 
 (when (fboundp 'display-line-numbers-mode)
+  (setq display-line-numbers-width 3)
   (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
 
