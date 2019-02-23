@@ -1,11 +1,11 @@
+;;; init-python.el --- Python editing -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (setq auto-mode-alist
       (append '(("SConstruct\\'" . python-mode)
                 ("SConscript\\'" . python-mode))
               auto-mode-alist))
-(setq python-shell-interpreter "ipython"
-	  python-shell-interpreter-args "-i")
-
-(setq python-shell-interpreter "d:/Program Files/Python/python.exe")
 
 (require-package 'pip-requirements)
 
@@ -20,3 +20,4 @@
 
 
 (provide 'init-python)
+;;; init-python.el ends here

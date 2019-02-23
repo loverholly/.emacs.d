@@ -1,3 +1,7 @@
+;;; init-lisp.el --- Emacs lisp settings, and common config for other lisps -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
   (add-hook hook 'turn-on-elisp-slime-nav-mode))
@@ -265,3 +269,4 @@
 (maybe-require-package 'cask-mode)
 
 (provide 'init-lisp)
+;;; init-lisp.el ends here

@@ -1,3 +1,7 @@
+;;; init-haskell.el --- Support the Haskell language -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (require-package 'haskell-mode)
 
 
@@ -76,10 +80,10 @@
 
 
 (when (maybe-require-package 'dhall-mode)
-  (add-hook 'dhall-mode-hook 'sanityinc/no-trailing-whitespace)
   (add-hook 'dhall-mode-hook 'stack-exec-path-mode))
 
 
 
 
 (provide 'init-haskell)
+;;; init-haskell.el ends here

@@ -1,4 +1,7 @@
-;; -*- lexical-binding: t -*-
+;;; init-editing-utils.el --- Day-to-day editing helpers -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (require-package 'unfill)
 
 (when (fboundp 'electric-pair-mode)
@@ -44,16 +47,9 @@
 (add-hook 'after-init-hook 'transient-mark-mode)
 
 
- ;;; A simple visible bell which works in all terminal types
-
-(defun sanityinc/flash-mode-line ()
-  (invert-face 'mode-line)
-  (run-with-timer 0.05 nil 'invert-face 'mode-line))
-
-(setq-default
- ring-bell-function 'sanityinc/flash-mode-line)
-
+
 ;; Huge files
+
 (require-package 'vlf)
 
 (defun ffap-vlf ()
@@ -110,13 +106,6 @@
   (add-hook 'after-init-hook 'global-prettify-symbols-mode))
 
 
-(require-package 'undo-tree)
-(add-hook 'after-init-hook 'global-undo-tree-mode)
-(after-load 'undo-tree
-  (diminish 'undo-tree-mode))
-
-
-
 (when (maybe-require-package 'symbol-overlay)
   (dolist (hook '(prog-mode-hook html-mode-hook yaml-mode-hook conf-mode-hook))
     (add-hook hook 'symbol-overlay-mode))
@@ -375,5 +364,5 @@ With arg N, insert N newlines."
 (global-set-key (kbd "M-g")  'goto-line)
 
 (global-set-key [f8] 'shell)
-
 (provide 'init-editing-utils)
+;;; init-editing-utils.el ends here

@@ -1,3 +1,7 @@
+;;; init-grep.el --- Settings for grep and grep-like tools -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (setq-default grep-highlight-matches t
               grep-scroll-output t)
 ;;; redefine the default grep template;some times emacs for windows the arguments is wrong
@@ -26,3 +30,4 @@
 
 
 (provide 'init-grep)
+;;; init-grep.el ends here

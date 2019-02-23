@@ -1,4 +1,7 @@
-;;; -*- lexical-binding: t -*-
+;;; init-ivy.el --- Use ivy for minibuffer completion and more -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (when (maybe-require-package 'ivy)
   (add-hook 'after-init-hook 'ivy-mode)
   (after-load 'ivy
@@ -30,9 +33,6 @@
     (require-package 'flx)
     (setq-default ivy-re-builders-alist
                   '((t . ivy--regex-fuzzy)))))
-
-(when (maybe-require-package 'ivy-historian)
-  (add-hook 'after-init-hook (lambda () (ivy-historian-mode t))))
 
 (when (maybe-require-package 'counsel)
   (setq-default counsel-mode-override-describe-bindings t)
@@ -83,3 +83,4 @@ instead."
 
 
 (provide 'init-ivy)
+;;; init-ivy.el ends here

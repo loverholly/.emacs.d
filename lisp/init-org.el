@@ -1,12 +1,16 @@
-;; -*- coding: utf-8 -*-
-;; org-completeè®¾ç½®
+;;; init-org.el --- Org-mode config -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
-;; è®¾ç½®orgçš„çŠ¶æ€å˜åŒ–æ ‡ç­¾
-;;åœ¨ï¼ˆï¼‰ä¸­å®šä¹‰é™„åŠ é€‰é¡¹ï¼ŒåŒ…æ‹¬:
-;;å­—ç¬¦ï¼šè¯¥çŠ¶æ€çš„å¿«æ·é”®
-;;ï¼ï¼šåˆ‡æ¢åˆ°è¯¥çŠ¶æ€æ—¶ä¼šè‡ªåŠ¨å¢åŠ æ—¶é—´æˆ³
-;;@ ï¼šåˆ‡æ¢åˆ°è¯¥çŠ¶æ€æ—¶è¦æ±‚è¾“å…¥æ–‡å­—è¯´æ˜
-;;å¦‚æœåŒæ—¶è®¾å®š@å’Œï¼ï¼Œä½¿ç”¨â€œ@/!â€
+;; -*- coding: utf-8 -*-
+;; org-completeÉèÖÃ
+
+;; ÉèÖÃorgµÄ×´Ì¬±ä»¯±êÇ©
+;;ÔÚ£¨£©ÖĞ¶¨Òå¸½¼ÓÑ¡Ïî£¬°üÀ¨:
+;;×Ö·û£º¸Ã×´Ì¬µÄ¿ì½İ¼ü
+;;£¡£ºÇĞ»»µ½¸Ã×´Ì¬Ê±»á×Ô¶¯Ôö¼ÓÊ±¼ä´Á
+;;@ £ºÇĞ»»µ½¸Ã×´Ì¬Ê±ÒªÇóÊäÈëÎÄ×ÖËµÃ÷
+;;Èç¹ûÍ¬Ê±Éè¶¨@ºÍ£¡£¬Ê¹ÓÃ¡°@/!¡±
 (setq org-todo-keywords
       '((sequence "TODO(t@/!)" "|" "CANCELED(c@/!)" "DELAY(l@/!)" "ABORT(a@/!)" "DONE(d@/!)")
         (sequence "REPORT(r@)" "BUG(b@)" "KNOWNCAUSE(k)" "|" "FIXED(f@)")
@@ -28,56 +32,56 @@
       org-export-kill-product-buffer-when-displayed t
       org-tags-column 80)
 
-;; è®¾ç½®orgä¸­è¯­æ³•é«˜äº®
+;; ÉèÖÃorgÖĞÓï·¨¸ßÁÁ
 (setq org-src-fontify-natively t)
 
-;; è®¾ç½®orgå¯¼å‡ºæ—¶åœ¨æ–‡æ¡£å‰é¢ç”Ÿæˆä¸€ä¸ªç« èŠ‚ç›®å½•è¡¨
+;; ÉèÖÃorgµ¼³öÊ±ÔÚÎÄµµÇ°ÃæÉú³ÉÒ»¸öÕÂ½ÚÄ¿Â¼±í
 (setq org-export-with-toc t)
 
-;; è®¾ç½®å¯ä»¥è½¬æ¢æ¢è¡Œç¬¦
+;; ÉèÖÃ¿ÉÒÔ×ª»»»»ĞĞ·û
 (setq org-export-preserve-breaks t)
 
-;; è®¾ç½®å¯¼å‡ºæ—¶ç”Ÿæˆå¯¹åº”çš„ç›®å½•å±‚çº§,æœ€å¤§æ·±åº¦ä¸º6çº§
+;; ÉèÖÃµ¼³öÊ±Éú³É¶ÔÓ¦µÄÄ¿Â¼²ã¼¶,×î´óÉî¶ÈÎª6¼¶
 (setq org-export-with-section-numbers 6)
 
-;; è®¾ç½®å¦‚æœå­ä»»åŠ¡æ²¡æœ‰å®Œæˆï¼Œé‚£ä¹ˆçˆ¶ä»»åŠ¡ä¸èƒ½ç»“æŸ
+;; ÉèÖÃÈç¹û×ÓÈÎÎñÃ»ÓĞÍê³É£¬ÄÇÃ´¸¸ÈÎÎñ²»ÄÜ½áÊø
 (setq org-enforce-todo-dependencies t)
 
-;; è®¾ç½®ä»»åŠ¡ç»“æŸæ—¶çš„æ—¶é—´,è®°å½•ç¬”è®°
+;; ÉèÖÃÈÎÎñ½áÊøÊ±µÄÊ±¼ä,¼ÇÂ¼±Ê¼Ç
 (setq org-log-done 'note)
 (setq org-log-done 'time)
 
-;; è®¾ç½®orgæé†’åŠŸèƒ½
+;; ÉèÖÃorgÌáĞÑ¹¦ÄÜ
 (setq org-agenda-to-appt t)
 
-;; è®¾ç½®ä¸€ä¸ªå…¨å±€çš„orgæ ‡ç­¾
+;; ÉèÖÃÒ»¸öÈ«¾ÖµÄorg±êÇ©
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("@happy" . ?p) ("@friend" . ?f) ("@study" . ?s) ("@note" . ?n)))
 
-;; è®¾ç½®ä¸åŒçš„æ ‡é¢˜çº§åˆ«æ˜¾ç¤ºä¸åŒçš„æ–‡å­—å¤§å°
+;; ÉèÖÃ²»Í¬µÄ±êÌâ¼¶±ğÏÔÊ¾²»Í¬µÄÎÄ×Ö´óĞ¡
 ;; (set-face-attribute 'org-level-1 nil :height 1.8 :bold t)
 ;; (set-face-attribute 'org-level-2 nil :height 1.6 :bold t)
 ;; (set-face-attribute 'org-level-3 nil :height 1.4 :bold t)
 ;; (set-face-attribute 'org-level-4 nil :height 1.2 :bold t)
 
-;; ç¦ç”¨ä¸‹åˆ’çº¿è½¬ä¹‰
+;; ½ûÓÃÏÂ»®Ïß×ªÒå
 (setq-default org-export-with-sub-superscripts nil)
 
-;; ä¸ç”¨é¢‘ç¹åˆ‡æ¢è¾“å…¥æ³•äº†ï¼Œä¸­æ–‡çŠ¶æ€ä¹Ÿå¯ä»¥è¾“å…¥*
+;; ²»ÓÃÆµ·±ÇĞ»»ÊäÈë·¨ÁË£¬ÖĞÎÄ×´Ì¬Ò²¿ÉÒÔÊäÈë*
 (defun org-mode-my-init ()
   (define-key org-mode-map (kbd "x") (kbd "*"))
-  (define-key org-mode-map (kbd "ï¼") (kbd "-"))
+  (define-key org-mode-map (kbd "£­") (kbd "-"))
   )
 
 (add-hook 'org-mode-hook 'org-mode-my-init)
 
-;; è®¾ç½®orgå…¨å±€åˆ—è¡¨
+;; ÉèÖÃorgÈ«¾ÖÁĞ±í
 (setq org-agenda-list (list "~/.emacs.d/org"))
 (setq org-agenda-files (list "~/.emacs.d/org"))
 
-;; é»˜è®¤å°†æ‰€æœ‰çš„org indentéƒ½æ‰“å¼€
+;; Ä¬ÈÏ½«ËùÓĞµÄorg indent¶¼´ò¿ª
 (setq org-startup-indented t)
 
-;; é…ç½®æ˜¾ç¤ºæ—¥å†èŠ‚å‡æ—¥
+;; ÅäÖÃÏÔÊ¾ÈÕÀú½Ú¼ÙÈÕ
 (setq mark-holidays-in-calendar t)
 (setq org-support-shift-select t)
 
@@ -185,7 +189,7 @@
 (setq org-time-clocksum-format
       '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
 
-;; orgæ¨¡å¼è®°å¿†åŠŸèƒ½
+;; orgÄ£Ê½¼ÇÒä¹¦ÄÜ
 (setq org-capture-templates
       '(("w" "work" entry (file+headline "~/.emacs.d/org/projects.org" "projects")
              "* TODO %?\n %i\n")
@@ -200,7 +204,7 @@
         ))
 
 
-;; è®¾ç½®å­ä»»åŠ¡çŠ¶æ€æ›´æ–°æ—¶ï¼Œçˆ¶ä»»åŠ¡ä¹Ÿæ›´æ–°
+;; ÉèÖÃ×ÓÈÎÎñ×´Ì¬¸üĞÂÊ±£¬¸¸ÈÎÎñÒ²¸üĞÂ
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
   (let (org-log-done org-log-states)   ; turn off logging
@@ -208,43 +212,44 @@
 
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
-;; è®¾ç½®org refile
+;; ÉèÖÃorg refile
 ;; (setq org-refile-targets (quote (("projects.org":maxlevel . 1)
 ;;                                  ("home.org":level . 2))))
 
-;; æ‰“å¼€æ—¥ç¨‹è¡¨
+;; ´ò¿ªÈÕ³Ì±í
 (org-agenda-list t)
 
-;; è®¾ç½®æ—¥ç¨‹è¡¨çš„æŸ¥çœ‹æœ€å¤§æ—¶é—´ä¸º21å¤©
+;; ÉèÖÃÈÕ³Ì±íµÄ²é¿´×î´óÊ±¼äÎª21Ìì
 (setq org-agenda-ndays 21)
 (setq org-agenda-include-diary t)
 (setq mark-holidays-in-calendar t)
 
 (setq my-holidays
-      '(;; å…¬å†èŠ‚æ—¥
-        (holiday-fixed 1 1   "å…ƒæ—¦èŠ‚")
-        (holiday-fixed 2 14  "æƒ…äººèŠ‚")
-        (holiday-fixed 5 1   "åŠ³åŠ¨èŠ‚")
-        (holiday-fixed 9 10  "æ•™å¸ˆèŠ‚")
-        (holiday-fixed 10 1  "å›½åº†èŠ‚")
-        (holiday-float 6 0 3 "çˆ¶äº²èŠ‚")
-        ;; å†œå†èŠ‚æ—¥
-        (holiday-lunar 1 1   "æ˜¥èŠ‚"       0)
-        (holiday-lunar 1 15  "å…ƒå®µèŠ‚"     0)
-        (holiday-solar-term  "æ¸…æ˜èŠ‚"      )
-        (holiday-lunar 5 5   "ç«¯åˆèŠ‚"     0)
-        (holiday-lunar 7 7   "ä¸ƒå¤•æƒ…äººèŠ‚" 0)
-        (holiday-lunar 8 15  "ä¸­ç§‹èŠ‚"     0)
-        ;; çºªå¿µæ—¥
-        (holiday-lunar 10 15 "å¥³å„¿ç”Ÿæ—¥"   0)
-        (holiday-lunar 11 05 "è€å©†ç”Ÿæ—¥"   0)
-        (holiday-lunar 04 14 "æˆ‘çš„ç”Ÿæ—¥"   0)
-        (holiday-lunar 02 05 "çˆ¶äº²ç”Ÿæ—¥"   0)
-        (holiday-lunar 07 01 "æ¯äº²ç”Ÿæ—¥"   0)
-        (holiday-lunar 03 14 "å§å§ç”Ÿæ—¥"   0)
+      '(;; ¹«Àú½ÚÈÕ
+        (holiday-fixed 1 1   "Ôªµ©½Ú")
+        (holiday-fixed 2 14  "ÇéÈË½Ú")
+        (holiday-fixed 5 1   "ÀÍ¶¯½Ú")
+        (holiday-fixed 9 10  "½ÌÊ¦½Ú")
+        (holiday-fixed 10 1  "¹úÇì½Ú")
+        (holiday-float 6 0 3 "¸¸Ç×½Ú")
+        ;; Å©Àú½ÚÈÕ
+        (holiday-lunar 1 1   "´º½Ú"       0)
+        (holiday-lunar 1 15  "ÔªÏü½Ú"     0)
+        (holiday-solar-term  "ÇåÃ÷½Ú"      )
+        (holiday-lunar 5 5   "¶ËÎç½Ú"     0)
+        (holiday-lunar 7 7   "ÆßÏ¦ÇéÈË½Ú" 0)
+        (holiday-lunar 8 15  "ÖĞÇï½Ú"     0)
+        ;; ¼ÍÄîÈÕ
+        (holiday-lunar 10 15 "Å®¶ùÉúÈÕ"   0)
+        (holiday-lunar 11 05 "ÀÏÆÅÉúÈÕ"   0)
+        (holiday-lunar 04 14 "ÎÒµÄÉúÈÕ"   0)
+        (holiday-lunar 02 05 "¸¸Ç×ÉúÈÕ"   0)
+        (holiday-lunar 07 01 "Ä¸Ç×ÉúÈÕ"   0)
+        (holiday-lunar 03 14 "½ã½ãÉúÈÕ"   0)
         ))
-(setq calendar-holidays my-holidays)  ;åªæ˜¾ç¤ºæˆ‘å®šåˆ¶çš„èŠ‚å‡æ—¥
+(setq calendar-holidays my-holidays)  ;Ö»ÏÔÊ¾ÎÒ¶¨ÖÆµÄ½Ú¼ÙÈÕ
 
-;; å…³é—­å…¶ä»–çª—å£
+;; ¹Ø±ÕÆäËû´°¿Ú
 (delete-other-windows)
 (provide 'init-org)
+;;; init-org.el ends here

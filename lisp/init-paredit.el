@@ -1,3 +1,7 @@
+;;; init-paredit.el --- Configure paredit structured editing -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 (require-package 'paredit)
 
 (defun maybe-map-paredit-newline ()
@@ -47,3 +51,4 @@
 (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
 
 (provide 'init-paredit)
+;;; init-paredit.el ends here
