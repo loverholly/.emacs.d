@@ -125,7 +125,7 @@ Return the updated `exec-path'"
 (require 'init-purescript)
 (require 'init-ruby)
 (require 'init-rails)
-(require 'init-sql)
+;; (require 'init-sql)
 (require 'init-rust)
 (require 'init-toml)
 (require 'init-yaml)
@@ -156,6 +156,7 @@ Return the updated `exec-path'"
 (require 'init-helm)
 (require 'init-astyle)
 (require 'init-cppcheck)
+(require 'init-irony)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
