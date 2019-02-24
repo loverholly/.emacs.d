@@ -156,7 +156,6 @@ Return the updated `exec-path'"
 (require 'init-helm)
 (require 'init-astyle)
 (require 'init-cppcheck)
-(require 'init-irony)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
