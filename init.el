@@ -89,7 +89,7 @@ Return the updated `exec-path'"
 (require 'init-smex)
 (require 'init-ivy)
 (require 'init-hippie-expand)
-;; (require 'init-company)
+(require 'init-company)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)

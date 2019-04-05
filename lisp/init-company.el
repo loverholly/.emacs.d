@@ -41,6 +41,8 @@
     (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
     (add-hook 'company-after-completion-hook 'sanityinc/page-break-lines-maybe-reenable)))
 
+(setq company-backends '((company-dabbrev-code company-gtags)))
+
 
 
 (provide 'init-company)
