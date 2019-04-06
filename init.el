@@ -102,7 +102,7 @@ Return the updated `exec-path'"
 (require 'init-darcs)
 (require 'init-git)
 (require 'init-github)
-
+(require 'init-hungry)
 (require 'init-projectile)
 
 (require 'init-compile)
