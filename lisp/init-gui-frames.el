@@ -19,7 +19,7 @@
 (setq use-file-dialog nil)
 (setq use-dialog-box nil)
 (setq inhibit-startup-screen t)
-
+(setq-default cursor-type 'bar)
 
 ;;----------------------------------------------------------------------------
 ;; Window size and features
