@@ -34,7 +34,7 @@
  save-interprogram-paste-before-kill t
  scroll-preserve-screen-position 'always
  set-mark-command-repeat-pop t
- tooltip-delay 1.5
+ tooltip-delay 0.5
  truncate-lines nil
  truncate-partial-width-windows nil)
 
