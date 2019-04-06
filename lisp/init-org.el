@@ -247,9 +247,10 @@
         (holiday-lunar 07 01 "母亲生日"   0)
         (holiday-lunar 03 14 "姐姐生日"   0)
         ))
-(setq calendar-holidays my-holidays)  ;只显示我定制的节假日
+(setq calendar-holidays my-holidays)
+(setq org-src-fontify-natively t)
 
-;; 关闭其他窗口
 (delete-other-windows)
+
 (provide 'init-org)
 ;;; init-org.el ends here
