@@ -90,6 +90,8 @@
 (require-package 'default-text-scale)
 (add-hook 'after-init-hook 'default-text-scale-mode)
 
+(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
 
 
 (require-package 'disable-mouse)
