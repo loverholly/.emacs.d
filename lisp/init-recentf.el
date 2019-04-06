@@ -4,7 +4,7 @@
 
 (add-hook 'after-init-hook 'recentf-mode)
 (setq-default
- recentf-max-saved-items 1000
+ recentf-max-saved-items 100
  recentf-exclude '("/tmp/" "/ssh:"))
 
 (defun open-emacs-init-file ()
