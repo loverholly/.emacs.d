@@ -23,6 +23,8 @@
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 (defconst windowsp (eq system-type 'windows-nt))
+ (when (eq system-type 'windows-nt)
+    (setq-default comint-process-echoes 'on))
 
 (defun prepend-to-exec-path (path)
   "prepend the path to the emacs intenral `exec-path' and \"PATH\" env variable.
@@ -142,6 +144,7 @@ Return the updated `exec-path'"
 (require 'init-clojure)
 (require 'init-clojure-cider)
 (require 'init-common-lisp)
+(require 'init-ssh)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
