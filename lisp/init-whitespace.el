@@ -4,15 +4,19 @@
 
 (setq-default show-trailing-whitespace nil)
 
-
+
 ;;; Whitespace
 
 (defun sanityinc/show-trailing-whitespace ()
   "Enable display of trailing whitespace in this buffer."
   (setq-local show-trailing-whitespace t))
 
+(defun sanityinc/hide-trailing-whitespace ()
+  "disable display of trailing whitespace in this buffer."
+  (setq-local show-trailing-whitespace nil))
+
 (dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
-  (add-hook hook 'sanityinc/show-trailing-whitespace))
+  (add-hook hook 'sanityinc/hide-trailing-whitespace))
 
 
 (require-package 'whitespace-cleanup-mode)
