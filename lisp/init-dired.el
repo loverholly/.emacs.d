@@ -10,7 +10,12 @@
 
 (when (maybe-require-package 'diredfl)
   (after-load 'dired
-    (diredfl-global-mode)))
+    (diredfl-global-mode)
+    (require 'dired-x)))
+
+;; Hook up dired-x global bindings without loading it up-front
+(define-key ctl-x-map "\C-j" 'dired-jump)
+(define-key ctl-x-4-map "\C-j" 'dired-jump-other-window)
 
 (after-load 'dired
   (setq dired-recursive-deletes 'top)
@@ -20,12 +25,6 @@
 (when (maybe-require-package 'diff-hl)
   (after-load 'dired
     (add-hook 'dired-mode-hook 'diff-hl-dired-mode)))
-
-(setq dired-recursive-deletes 'always)
-(setq dired-recursive-copies 'always)
-(put 'dired-find-alternate-file 'disabled nil)
-(with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 (provide 'init-dired)
 ;;; init-dired.el ends here

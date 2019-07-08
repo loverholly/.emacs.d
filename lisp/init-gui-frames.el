@@ -84,7 +84,8 @@
           (lambda ()
             (setq line-spacing 0)))
 
-
+
+
 ;; Change global font size easily
 
 (require-package 'default-text-scale)
@@ -93,7 +94,8 @@
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 
-
+
+
 (require-package 'disable-mouse)
 
 
