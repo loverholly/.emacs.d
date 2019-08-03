@@ -23,7 +23,7 @@
  delete-selection-mode t
  ediff-split-window-function 'split-window-horizontally
  ediff-window-setup-function 'ediff-setup-windows-plain
- indent-tabs-mode nil
+ indent-tabs-mode t
  default-tab-width 4
  tab-width 4
  tab-always-indent 4
