@@ -132,4 +132,7 @@
 (define-key helm-gtags-mode-map (kbd "C-c C-g") 'helm-gtags-create-tags)
 (define-key helm-gtags-mode-map (kbd "C-c C-y") 'helm-gtags-find-symbol)
 
+;; save symbol auto update
+(setq helm-gtags-auto-update t) 
+
 (provide 'init-helm)
