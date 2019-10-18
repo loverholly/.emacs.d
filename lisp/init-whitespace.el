@@ -12,12 +12,22 @@
   (setq-local show-trailing-whitespace t))
 
 (defun sanityinc/hide-trailing-whitespace ()
-  "disable display of trailing whitespace in this buffer."
+  "hide display of trailing whitespace in this buffer."
   (setq-local show-trailing-whitespace nil))
 
-(dolist (hook '(prog-mode-hook text-mode-hook conf-mode-hook))
-  (add-hook hook 'sanityinc/hide-trailing-whitespace))
-
+(dolist (hook '(special-mode-hook
+				Info-mode-hook
+				eww-mode-hook
+				term-mode-hook
+				c-mode-hook
+				comint-mode-hook
+				compilation-mode-hook
+				twittering-mode-hook
+				minibuffer-setup-hook
+				prog-mode-hook
+				text-mode-hook
+				conf-mode-hook))
+  (add-hook hook #'sanityinc/hide-trailing-whitespace))
 
 (require-package 'whitespace-cleanup-mode)
 (add-hook 'after-init-hook 'global-whitespace-cleanup-mode)
