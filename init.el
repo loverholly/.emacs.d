@@ -199,13 +199,10 @@ Return the updated `exec-path'"
 ;;----------------------------------------------------------------------------
 (require 'init-locales)
 
-
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-local" containing personal settings
 ;;----------------------------------------------------------------------------
 (require 'init-local nil t)
-
-
 
 (provide 'init)
 
