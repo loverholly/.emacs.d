@@ -34,7 +34,7 @@
 (after-load 'whitespace-cleanup-mode
   (diminish 'whitespace-cleanup-mode))
 
-(whitespace-cleaup-mode t)
+(whitespace-cleanup-mode t)
 
 (global-set-key [remap just-one-space] 'cycle-spacing)
 
