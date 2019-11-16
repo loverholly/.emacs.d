@@ -342,11 +342,11 @@ With arg N, insert N newlines."
 (add-hook 'after-init-hook 'hes-mode)
 
 
-(require-package 'guide-key)
-(setq guide-key/guide-key-sequence t)
-(add-hook 'after-init-hook 'guide-key-mode)
-(after-load 'guide-key
-  (diminish 'guide-key-mode))
+(require-package 'which-key)
+(add-hook 'after-init-hook 'which-key-mode)
+(setq-default which-key-idle-delay 1.5)
+(after-load 'which-key
+  (diminish 'which-key-mode))
 
 (defun indent-buffer ()
   "Indent the whole buffer."
