@@ -38,21 +38,21 @@
 
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
-(global-set-key (kbd "C-c h o") 'helm-occur)
+;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+;; (global-set-key (kbd "C-x b") 'helm-mini)
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
+;; (global-set-key (kbd "C-c h o") 'helm-occur)
 
-(global-set-key (kbd "C-c h C-c w") 'helm-wikipedia-suggest)
+;; (global-set-key (kbd "C-c h C-c w") 'helm-wikipedia-suggest)
 
-(global-set-key (kbd "C-c h x") 'helm-register)
+;; (global-set-key (kbd "C-c h x") 'helm-register)
 ;; (global-set-key (kbd "C-x r j") 'jump-to-register)
 
-(define-key 'help-command (kbd "C-f") 'helm-apropos)
-(define-key 'help-command (kbd "r") 'helm-info-emacs)
-(define-key 'help-command (kbd "C-l") 'helm-locate-library)
+;; (define-key 'help-command (kbd "C-f") 'helm-apropos)
+;; (define-key 'help-command (kbd "r") 'helm-info-emacs)
+;; (define-key 'help-command (kbd "C-l") 'helm-locate-library)
 
 ;; use helm to list eshell history
 (add-hook 'eshell-mode-hook
@@ -63,8 +63,8 @@
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 
 ;; show minibuffer history with Helm
-(define-key minibuffer-local-map (kbd "M-p") 'helm-minibuffer-history)
-(define-key minibuffer-local-map (kbd "M-n") 'helm-minibuffer-history)
+;; (define-key minibuffer-local-map (kbd "M-p") 'helm-minibuffer-history)
+;; (define-key minibuffer-local-map (kbd "M-n") 'helm-minibuffer-history)
 
 (define-key global-map [remap find-tag] 'helm-etags-select)
 
@@ -77,8 +77,8 @@
 (require 'helm-swoop)
 
 ;; Change the keybinds to whatever you like :)
-(global-set-key (kbd "C-c h o") 'helm-swoop)
-(global-set-key (kbd "C-c s") 'helm-multi-swoop-all)
+;; (global-set-key (kbd "C-c h o") 'helm-swoop)
+;; (global-set-key (kbd "C-c s") 'helm-multi-swoop-all)
 
 ;; When doing isearch, hand the word over to helm-swoop
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
@@ -131,8 +131,5 @@
 (define-key helm-gtags-mode-map (kbd "C-c C-u") 'helm-gtags-update-tags)
 (define-key helm-gtags-mode-map (kbd "C-c C-g") 'helm-gtags-create-tags)
 (define-key helm-gtags-mode-map (kbd "C-c C-j") 'helm-gtags-find-symbol)
-
-;; save symbol auto update
-(setq helm-gtags-auto-update t) 
 
 (provide 'init-helm)

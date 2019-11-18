@@ -6,10 +6,8 @@
 
 ;;; Code:
 
-;; Produce backtraces when errors occur
-(setq debug-on-error nil)
-
-(setq gc-cons-threshold 100000000)
+;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
+;;(setq debug-on-error t)
 
 (let ((minver "24.4"))
   (when (version< emacs-version minver)
@@ -92,7 +90,8 @@ Return the updated `exec-path'"
 (require 'init-recentf)
 (require 'init-smex)
 (require 'init-gdb)
-;; (require 'init-ivy)
+(require 'init-ivy)
+(require 'init-helm)
 (require 'init-hippie-expand)
 (require 'init-company)
 (require 'init-windows)
@@ -107,7 +106,7 @@ Return the updated `exec-path'"
 (require 'init-darcs)
 (require 'init-git)
 (require 'init-github)
-(require 'init-hungry)
+
 (require 'init-projectile)
 
 (require 'init-compile)
@@ -136,7 +135,7 @@ Return the updated `exec-path'"
 (require 'init-yaml)
 (require 'init-docker)
 (require 'init-terraform)
-(require 'init-nix)
+;;(require 'init-nix)
 (maybe-require-package 'nginx-mode)
 
 (require 'init-paredit) ;;this is for lisp auto paredit, but i was a c/c++ coder
@@ -159,7 +158,6 @@ Return the updated `exec-path'"
 ;; (require 'init-mu)
 (require 'init-ledger)
 (require 'init-yasnippet)
-(require 'init-helm)
 (require 'init-astyle)
 (require 'init-cppcheck)
 ;; Extra packages which don't require any configuration
@@ -178,6 +176,8 @@ Return the updated `exec-path'"
   (setq-default uptimes-keep-count 200)
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
+(when (fboundp 'global-eldoc-mode)
+  (add-hook 'after-init-hook 'global-eldoc-mode))
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
@@ -200,10 +200,13 @@ Return the updated `exec-path'"
 ;;----------------------------------------------------------------------------
 (require 'init-locales)
 
+
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-local" containing personal settings
 ;;----------------------------------------------------------------------------
 (require 'init-local nil t)
+
+
 
 (provide 'init)
 
