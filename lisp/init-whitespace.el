@@ -21,10 +21,14 @@
 
 (require-package 'whitespace-cleanup-mode)
 (add-hook 'after-init-hook 'global-whitespace-cleanup-mode)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; in c/c++ programmer mode, comment it
+;; (add-hook 'before-save-hook 'whitespace-cleanup)
+;; (add-hook 'before-save-hook 'delete-blank-lines)
 (after-load 'whitespace-cleanup-mode
   (diminish 'whitespace-cleanup-mode))
 
-(whitespace-cleanup-mode t)
+(setq-default whitespace-cleanup-mode t)
 
 (global-set-key [remap just-one-space] 'cycle-spacing)
 
