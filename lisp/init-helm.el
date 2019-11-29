@@ -41,7 +41,7 @@
 ;; (global-set-key (kbd "M-x") 'helm-M-x)
 ;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 ;; (global-set-key (kbd "C-x b") 'helm-mini)
-;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 ;; (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 ;; (global-set-key (kbd "C-c h o") 'helm-occur)
 
@@ -50,9 +50,9 @@
 ;; (global-set-key (kbd "C-c h x") 'helm-register)
 ;; (global-set-key (kbd "C-x r j") 'jump-to-register)
 
-;; (define-key 'help-command (kbd "C-f") 'helm-apropos)
+(define-key 'help-command (kbd "C-f") 'helm-apropos)
 ;; (define-key 'help-command (kbd "r") 'helm-info-emacs)
-;; (define-key 'help-command (kbd "C-l") 'helm-locate-library)
+(define-key 'help-command (kbd "C-l") 'helm-locate-library)
 
 ;; use helm to list eshell history
 (add-hook 'eshell-mode-hook
