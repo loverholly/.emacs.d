@@ -121,15 +121,15 @@
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
-;; (define-key helm-gtags-mode-map (kbd "C-c C-j") 'helm-gtags-select)
+(define-key helm-gtags-mode-map (kbd "C-c C-j") 'helm-gtags-select)
 (define-key helm-gtags-mode-map (kbd "C-c C-k") 'helm-gtags-dwim)
 (define-key helm-gtags-mode-map (kbd "C-c C-l") 'helm-gtags-find-pattern)
 ;; (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-next-history)
 (define-key helm-gtags-mode-map (kbd "C-c C-f") 'helm-gtags-find-files)
-(define-key helm-gtags-mode-map (kbd "C-c C-u") 'helm-gtags-update-tags)
+(define-key helm-gtags-mode-map (kbd "C-c C-i") 'helm-gtags-update-tags)
 (define-key helm-gtags-mode-map (kbd "C-c C-g") 'helm-gtags-create-tags)
-(define-key helm-gtags-mode-map (kbd "C-c C-j") 'helm-gtags-find-symbol)
+;; (define-key helm-gtags-mode-map (kbd "C-c C-j") 'helm-gtags-find-symbol)
 
 (provide 'init-helm)
