@@ -1,5 +1,5 @@
 (let ((style "linux"))
-  (setq format-command (format "astyle --style=%s -H -xV -xg -U -k3 -W3 -xb -xn -xc -xf -xh -xr -z2 -C -w -Y -N -L -m0 -M40 --pad-oper --suffix=none --indent=force-tab" style)))
+  (setq format-command (format "astyle --style=%s -H -xV -xg -U -k3 -W3 -xb -xn -xc -xf -xh -xr -z2 -C -xW -xL -Y -N -m0 -M40 -xC80 --pad-oper --suffix=none --indent=force-tab" style)))
 
 (global-auto-revert-mode t)
 
