@@ -1,5 +1,5 @@
 (let ((style "linux"))
-  (setq format-command (format "astyle --style=%s --indent=4 -H -xV -xg -U -k3 -W3 -xb -xn -xc -xf -xh -xr -z2 -C -xL -Y -N -m0 -M40 -xC80 --pad-oper --suffix=none --indent=force-tab" style))) ;;indent=8 should be used to linux kernel and init-edit-utils also be set indent=8
+  (setq format-command (format "astyle --style=%s -H -xV -xg -U -k3 -W3 -xb -xn -xc -xf -xh -xr -z2 -C -xL -Y -N -m0 -M40 -xC80 --pad-oper --suffix=none --indent=force-tab" style))) ;;indent=8 should be used to linux kernel and init-edit-utils also be set indent=8
 
 (global-auto-revert-mode t)
 
