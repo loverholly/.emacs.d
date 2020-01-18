@@ -21,8 +21,11 @@
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 (defconst windowsp (eq system-type 'windows-nt))
- (when (eq system-type 'windows-nt)
-    (setq-default comint-process-echoes 'on))
+(when (eq system-type 'windows-nt)
+  (setq-default comint-process-echoes 'on)
+  (setenv "LC_ALL" "zh_CN.GBK")
+  (setenv "LC_TYPE" "zh_CN.GBK")
+  (setenv "LANG" "zh_CN.GBK"))
 
 (defun prepend-to-exec-path (path)
   "prepend the path to the emacs intenral `exec-path' and \"PATH\" env variable.
