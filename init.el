@@ -130,7 +130,7 @@ Return the updated `exec-path'"
 (require 'init-haskell)
 (require 'init-elm)
 (require 'init-purescript)
-(require 'init-ruby)
+;; (require 'init-ruby)
 (require 'init-rails)
 (require 'init-sql)
 (require 'init-rust)
