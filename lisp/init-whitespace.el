@@ -35,7 +35,7 @@
 ;; in c/c++ programmer mode, comment it
 ;; (add-hook 'before-save-hook 'whitespace-cleanup)
 ;; (add-hook 'before-save-hook 'delete-blank-lines)
-(after-load 'whitespace-cleanup-mode
+(with-eval-after-load 'whitespace-cleanup-mode
   (diminish 'whitespace-cleanup-mode))
 
 (setq whitespace-style '(face empty lines-tail trailing))

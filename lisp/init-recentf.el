@@ -5,7 +5,7 @@
 (add-hook 'after-init-hook 'recentf-mode)
 (setq-default
  recentf-max-saved-items 100
- recentf-exclude '("/tmp/" "/ssh:"))
+ recentf-exclude `("/tmp/" "/ssh:" ,(concat package-user-dir "/.*-autoloads\\.el\\'")))
 
 (defun open-emacs-init-file ()
   (interactive)
