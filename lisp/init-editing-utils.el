@@ -375,6 +375,9 @@ With arg N, insert N newlines."
 
 (global-set-key [f8] 'shell)
 
+(when (eq system-type 'linux)
+  (setq shell-file-name "/bin/bash"))
+
 (defun sanityinc/disable-features-during-macro-call (orig &rest args)
   "When running a macro, disable features that might be expensive.
 ORIG is the advised function, which is called with its ARGS."
