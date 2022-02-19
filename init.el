@@ -107,8 +107,8 @@ Return the updated `exec-path'"
 
 (require 'init-vc)
 (require 'init-darcs)
-(require 'init-git)
-(require 'init-github)
+;;(require 'init-git)
+;;(require 'init-github)
 
 (require 'init-projectile)
 
