@@ -103,7 +103,7 @@
   (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
 
-
+(setq-default fill-column 80)
 (when (boundp 'display-fill-column-indicator)
   (setq-default indicate-buffer-boundaries 'left)
   (setq-default display-fill-column-indicator-character ?\u254e)
