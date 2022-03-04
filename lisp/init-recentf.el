@@ -4,14 +4,9 @@
 
 (add-hook 'after-init-hook 'recentf-mode)
 (setq-default
- recentf-max-saved-items 100
+ recentf-max-saved-items 1000
  recentf-exclude `("/tmp/" "/ssh:" ,(concat package-user-dir "/.*-autoloads\\.el\\'")))
 
-(defun open-emacs-init-file ()
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-
-(global-set-key (kbd "<f2>") 'open-emacs-init-file)
 
 (provide 'init-recentf)
 ;;; init-recentf.el ends here

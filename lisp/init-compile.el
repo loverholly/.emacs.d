@@ -55,7 +55,7 @@
 (advice-add 'shell-command-on-region :after 'sanityinc/shell-command-in-view-mode)
 
 
-(after-load 'compile
+(with-eval-after-load 'compile
   (require 'ansi-color)
   (defun sanityinc/colourise-compilation-buffer ()
     (when (eq major-mode 'compilation-mode)

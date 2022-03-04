@@ -1,25 +1,44 @@
 ;;; init-org.el --- Org-mode config -*- lexical-binding: t -*-
 ;;; Commentary:
+
+;; Among settings for many aspects of `org-mode', this code includes
+;; an opinionated setup for the Getting Things Done (GTD) system based
+;; around the Org Agenda.  I have an "inbox.org" file with a header
+;; including
+
+;;     #+CATEGORY: Inbox
+;;     #+FILETAGS: INBOX
+
+;; and then set this file as `org-default-notes-file'.  Captured org
+;; items will then go into this file with the file-level tag, and can
+;; be refiled to other locations as necessary.
+
+;; Those other locations are generally other org files, which should
+;; be added to `org-agenda-files-list' (along with "inbox.org" org).
+;; With that done, there's then an agenda view, accessible via the
+;; `org-agenda' command, which gives a convenient overview.
+;; `org-todo-keywords' is customised here to provide corresponding
+;; TODO states, which should make sense to GTD adherents.
+
 ;;; Code:
 
-;; -*- coding: utf-8 -*-
-;; org-complete设置
+(when *is-a-mac*
+  (maybe-require-package 'grab-mac-link))
 
-;; 设置org的状态变化标签
-;;在（）中定义附加选项，包括:
-;;字符：该状态的快捷键
-;;！：切换到该状态时会自动增加时间戳
-;;@ ：切换到该状态时要求输入文字说明
-;;如果同时设定@和！，使用“@/!”
-(setq org-todo-keywords
-      '((sequence "TODO(t@/!)" "|" "CANCELED(c@/!)" "DELAY(l@/!)" "ABORT(a@/!)" "DONE(d@/!)")
-        (sequence "REPORT(r@)" "BUG(b@)" "KNOWNCAUSE(k)" "|" "FIXED(f@)")
-        ))
+(maybe-require-package 'org-cliplink)
 
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
-(define-key global-map (kbd "C-c c") 'org-capture)
-(define-key global-map (kbd "C-c b") 'org-switchb)
+
+(defvar sanityinc/org-global-prefix-map (make-sparse-keymap)
+  "A keymap for handy global access to org helpers, particularly clocking.")
+
+(define-key sanityinc/org-global-prefix-map (kbd "j") 'org-clock-goto)
+(define-key sanityinc/org-global-prefix-map (kbd "l") 'org-clock-in-last)
+(define-key sanityinc/org-global-prefix-map (kbd "i") 'org-clock-in)
+(define-key sanityinc/org-global-prefix-map (kbd "o") 'org-clock-out)
+(define-key global-map (kbd "C-c o") sanityinc/org-global-prefix-map)
+
 
 ;; Various preferences
 (setq org-log-done t
@@ -32,58 +51,131 @@
       org-export-kill-product-buffer-when-displayed t
       org-tags-column 80)
 
-;; 设置org中语法高亮
-(setq org-src-fontify-natively t)
 
-;; 设置org导出时在文档前面生成一个章节目录表
-(setq org-export-with-toc t)
+;; Lots of stuff from http://doc.norang.ca/org-mode.html
 
-;; 设置可以转换换行符
-(setq org-export-preserve-breaks t)
+;; Re-align tags when window shape changes
+(with-eval-after-load 'org-agenda
+  (add-hook 'org-agenda-mode-hook
+            (lambda () (add-hook 'window-configuration-change-hook 'org-agenda-align-tags nil t))))
 
-;; 设置导出时生成对应的目录层级,最大深度为6级
-(setq org-export-with-section-numbers 6)
 
-;; 设置如果子任务没有完成，那么父任务不能结束
-(setq org-enforce-todo-dependencies t)
+
 
-;; 设置任务结束时的时间,记录笔记
-(setq org-log-done 'note)
-(setq org-log-done 'time)
+(maybe-require-package 'writeroom-mode)
 
-;; 设置org提醒功能
-(setq org-agenda-to-appt t)
+(define-minor-mode prose-mode
+  "Set up a buffer for prose editing.
+This enables or modifies a number of settings so that the
+experience of editing prose is a little more like that of a
+typical word processor."
+  :init-value nil :lighter " Prose" :keymap nil
+  (if prose-mode
+      (progn
+        (when (fboundp 'writeroom-mode)
+          (writeroom-mode 1))
+        (setq truncate-lines nil)
+        (setq word-wrap t)
+        (setq cursor-type 'bar)
+        (when (eq major-mode 'org)
+          (kill-local-variable 'buffer-face-mode-face))
+        (buffer-face-mode 1)
+        ;;(delete-selection-mode 1)
+        (setq-local blink-cursor-interval 0.6)
+        (setq-local show-trailing-whitespace nil)
+        (setq-local line-spacing 0.2)
+        (setq-local electric-pair-mode nil)
+        (ignore-errors (flyspell-mode 1))
+        (visual-line-mode 1))
+    (kill-local-variable 'truncate-lines)
+    (kill-local-variable 'word-wrap)
+    (kill-local-variable 'cursor-type)
+    (kill-local-variable 'blink-cursor-interval)
+    (kill-local-variable 'show-trailing-whitespace)
+    (kill-local-variable 'line-spacing)
+    (kill-local-variable 'electric-pair-mode)
+    (buffer-face-mode -1)
+    ;; (delete-selection-mode -1)
+    (flyspell-mode -1)
+    (visual-line-mode -1)
+    (when (fboundp 'writeroom-mode)
+      (writeroom-mode 0))))
 
-;; 设置一个全局的org标签
-(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("@happy" . ?p) ("@friend" . ?f) ("@study" . ?s) ("@note" . ?n)))
+;;(add-hook 'org-mode-hook 'buffer-face-mode)
 
-;; 设置不同的标题级别显示不同的文字大小
-;; (set-face-attribute 'org-level-1 nil :height 1.8 :bold t)
-;; (set-face-attribute 'org-level-2 nil :height 1.6 :bold t)
-;; (set-face-attribute 'org-level-3 nil :height 1.4 :bold t)
-;; (set-face-attribute 'org-level-4 nil :height 1.2 :bold t)
 
-;; 禁用下划线转义
-(setq-default org-export-with-sub-superscripts nil)
-
-;; 不用频繁切换输入法了，中文状态也可以输入*
-(defun org-mode-my-init ()
-  (define-key org-mode-map (kbd "x") (kbd "*"))
-  (define-key org-mode-map (kbd "－") (kbd "-"))
-  )
-
-(add-hook 'org-mode-hook 'org-mode-my-init)
-
-;; 设置org全局列表
-(setq org-agenda-list (list "~/.emacs.d/org"))
-(setq org-agenda-files (list "~/.emacs.d/org"))
-
-;; 默认将所有的org indent都打开
-(setq org-startup-indented t)
-
-;; 配置显示日历节假日
-(setq mark-holidays-in-calendar t)
 (setq org-support-shift-select t)
+
+;;; Capturing
+
+(global-set-key (kbd "C-c c") 'org-capture)
+
+(setq org-capture-templates
+      `(("t" "todo" entry (file "")  ; "" => `org-default-notes-file'
+         "* NEXT %?\n%U\n" :clock-resume t)
+        ("n" "note" entry (file "")
+         "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
+        ))
+
+
+
+;;; Refiling
+
+(setq org-refile-use-cache nil)
+
+;; Targets include this file and any file contributing to the agenda - up to 5 levels deep
+(setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
+
+(with-eval-after-load 'org-agenda
+  (add-to-list 'org-agenda-after-show-hook 'org-show-entry))
+
+(advice-add 'org-refile :after (lambda (&rest _) (org-save-all-org-buffers)))
+
+;; Exclude DONE state tasks from refile targets
+(defun sanityinc/verify-refile-target ()
+  "Exclude todo keywords with a done state from refile targets."
+  (not (member (nth 2 (org-heading-components)) org-done-keywords)))
+(setq org-refile-target-verify-function 'sanityinc/verify-refile-target)
+
+(defun sanityinc/org-refile-anywhere (&optional goto default-buffer rfloc msg)
+  "A version of `org-refile' which allows refiling to any subtree."
+  (interactive "P")
+  (let ((org-refile-target-verify-function))
+    (org-refile goto default-buffer rfloc msg)))
+
+(defun sanityinc/org-agenda-refile-anywhere (&optional goto rfloc no-update)
+  "A version of `org-agenda-refile' which allows refiling to any subtree."
+  (interactive "P")
+  (let ((org-refile-target-verify-function))
+    (org-agenda-refile goto rfloc no-update)))
+
+;; Targets start with the file name - allows creating level 1 tasks
+;;(setq org-refile-use-outline-path (quote file))
+(setq org-refile-use-outline-path t)
+(setq org-outline-path-complete-in-steps nil)
+
+;; Allow refile to create parent tasks with confirmation
+(setq org-refile-allow-creating-parent-nodes 'confirm)
+
+
+;;; To-do settings
+
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
+              (sequence "PROJECT(p)" "|" "DONE(d!/!)" "CANCELLED(c@/!)")
+              (sequence "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h)" "|" "CANCELLED(c@/!)")))
+      org-todo-repeat-to-state "NEXT")
+
+(setq org-todo-keyword-faces
+      (quote (("NEXT" :inherit warning)
+              ("PROJECT" :inherit font-lock-string-face))))
+
+
+
+;;; Agenda views
+
+(setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
+
 
 (let ((active-project-match "-INBOX/PROJECT"))
 
@@ -171,13 +263,15 @@
 
 (add-hook 'org-agenda-mode-hook 'hl-line-mode)
 
+
 ;;; Org clock
 
 ;; Save the running clock and all clock history when exiting Emacs, load it on startup
-(after-load 'org
+(with-eval-after-load 'org
   (org-clock-persistence-insinuate))
 (setq org-clock-persist t)
 (setq org-clock-in-resume t)
+
 ;; Save clock data and notes in the LOGBOOK drawer
 (setq org-clock-into-drawer t)
 ;; Save state changes in the LOGBOOK drawer
@@ -189,68 +283,107 @@
 (setq org-time-clocksum-format
       '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
 
-;; org模式记忆功能
-(setq org-capture-templates
-      '(("w" "work" entry (file+headline "~/.emacs.d/org/projects.org" "projects")
-             "* TODO %?\n %i\n")
-        ("h" "Home" entry (file+datetree "~/.emacs.d/org/home.org")
-         "* %?\nEntered on %U\n %i\n")
-        ("n" "Note" entry (file+datetree "~/.emacs.d/org/notes.org")
-         "* %?\nEntered on %U\n %i\n")
-        ("s" "Study" entry (file "~/.emacs.d/org/study.org")
-         "* %?\nEntered on %U\n %i\n")
-        ("f" "Funy" entry (file+datetree "~/.emacs.d/org/funy.org")
-         "* %?\nEntered on %U\n %i\n")
-        ))
+
+
+;;; Show the clocked-in task - if any - in the header line
+(defun sanityinc/show-org-clock-in-header-line ()
+  (setq-default header-line-format '((" " org-mode-line-string " "))))
+
+(defun sanityinc/hide-org-clock-from-header-line ()
+  (setq-default header-line-format nil))
+
+(add-hook 'org-clock-in-hook 'sanityinc/show-org-clock-in-header-line)
+(add-hook 'org-clock-out-hook 'sanityinc/hide-org-clock-from-header-line)
+(add-hook 'org-clock-cancel-hook 'sanityinc/hide-org-clock-from-header-line)
+
+(with-eval-after-load 'org-clock
+  (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
+  (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu))
 
 
-;; 设置子任务状态更新时，父任务也更新
-(defun org-summary-todo (n-done n-not-done)
-  "Switch entry to DONE when all subentries are done, to TODO otherwise."
-  (let (org-log-done org-log-states)   ; turn off logging
-    (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+(when (and *is-a-mac* (file-directory-p "/Applications/org-clock-statusbar.app"))
+  (add-hook 'org-clock-in-hook
+            (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e"
+                                (concat "tell application \"org-clock-statusbar\" to clock in \"" org-clock-current-task "\""))))
+  (add-hook 'org-clock-out-hook
+            (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e"
+                                "tell application \"org-clock-statusbar\" to clock out"))))
 
-(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
-;; 设置org refile
-;; (setq org-refile-targets (quote (("projects.org":maxlevel . 1)
-;;                                  ("home.org":level . 2))))
+
+;; TODO: warn about inconsistent items, e.g. TODO inside non-PROJECT
+;; TODO: nested projects!
 
-;; 打开日程表
-(org-agenda-list t)
 
-;; 设置日程表的查看最大时间为21天
-(setq org-agenda-ndays 21)
-(setq org-agenda-include-diary t)
-(setq mark-holidays-in-calendar t)
+
+;;; Archiving
 
-(setq my-holidays
-      '(;; 公历节日
-        (holiday-fixed 1 1   "元旦节")
-        (holiday-fixed 2 14  "情人节")
-        (holiday-fixed 5 1   "劳动节")
-        (holiday-fixed 9 10  "教师节")
-        (holiday-fixed 10 1  "国庆节")
-        (holiday-float 6 0 3 "父亲节")
-        ;; 农历节日
-        (holiday-lunar 1 1   "春节"       0)
-        (holiday-lunar 1 15  "元宵节"     0)
-        (holiday-solar-term  "清明节"      )
-        (holiday-lunar 5 5   "端午节"     0)
-        (holiday-lunar 7 7   "七夕情人节" 0)
-        (holiday-lunar 8 15  "中秋节"     0)
-        ;; 纪念日
-        (holiday-lunar 10 15 "女儿生日"   0)
-        (holiday-lunar 11 05 "老婆生日"   0)
-        (holiday-lunar 04 14 "我的生日"   0)
-        (holiday-lunar 02 05 "父亲生日"   0)
-        (holiday-lunar 07 01 "母亲生日"   0)
-        (holiday-lunar 03 14 "姐姐生日"   0)
-        ))
-(setq calendar-holidays my-holidays)
-(setq org-src-fontify-natively t)
+(setq org-archive-mark-done nil)
+(setq org-archive-location "%s_archive::* Archive")
 
-(delete-other-windows)
+
+
+
+
+(require-package 'org-pomodoro)
+(setq org-pomodoro-keep-killed-pomodoro-time t)
+(with-eval-after-load 'org-agenda
+  (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
+
+
+;; ;; Show iCal calendars in the org agenda
+;; (when (and *is-a-mac* (require 'org-mac-iCal nil t))
+;;   (setq org-agenda-include-diary t
+;;         org-agenda-custom-commands
+;;         '(("I" "Import diary from iCal" agenda ""
+;;            ((org-agenda-mode-hook #'org-mac-iCal)))))
+
+;;   (add-hook 'org-agenda-cleanup-fancy-diary-hook
+;;             (lambda ()
+;;               (goto-char (point-min))
+;;               (save-excursion
+;;                 (while (re-search-forward "^[a-z]" nil t)
+;;                   (goto-char (match-beginning 0))
+;;                   (insert "0:00-24:00 ")))
+;;               (while (re-search-forward "^ [a-z]" nil t)
+;;                 (goto-char (match-beginning 0))
+;;                 (save-excursion
+;;                   (re-search-backward "^[0-9]+:[0-9]+-[0-9]+:[0-9]+ " nil t))
+;;                 (insert (match-string 0))))))
+
+
+(with-eval-after-load 'org
+  (define-key org-mode-map (kbd "C-M-<up>") 'org-up-element)
+  (when *is-a-mac*
+    (define-key org-mode-map (kbd "M-h") nil)
+    (define-key org-mode-map (kbd "C-c g") 'grab-mac-link)))
+
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   (seq-filter
+    (lambda (pair)
+      (featurep (intern (concat "ob-" (symbol-name (car pair))))))
+    '((R . t)
+      (ditaa . t)
+      (dot . t)
+      (emacs-lisp . t)
+      (gnuplot . t)
+      (haskell . nil)
+      (latex . t)
+      (ledger . t)
+      (ocaml . nil)
+      (octave . t)
+      (plantuml . t)
+      (python . t)
+      (ruby . t)
+      (screen . nil)
+      (sh . t) ;; obsolete
+      (shell . t)
+      (sql . t)
+      (sqlite . t)))))
+
 
 (provide 'init-org)
 ;;; init-org.el ends here
