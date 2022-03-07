@@ -77,8 +77,7 @@ Return the updated `exec-path'"
 (require 'init-flycheck)
 
 (require 'init-recentf)
-(require 'init-minibuffer)
-(require 'init-dap)
+;;(require 'init-minibuffer)
 (require 'init-smex)
 (require 'init-gdb)
 ;;(require 'init-ivy)
@@ -139,6 +138,7 @@ Return the updated `exec-path'"
 (require 'init-clojure-cider)
 (require 'init-common-lisp)
 (require 'init-ssh)
+(require 'init-nyan)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
