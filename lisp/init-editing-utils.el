@@ -23,10 +23,10 @@
  ediff-split-window-function 'split-window-horizontally
  ediff-window-setup-function 'ediff-setup-windows-plain
  indent-tabs-mode t
- default-tab-width 4
- tab-width 4
- tab-always-indent 4
- c-basic-offset 4
+ default-tab-width 8
+ tab-width 8
+ tab-always-indent 8
+ c-basic-offset 8
  c-default-style "linux"
  create-lockfiles nil
  auto-save-default nil
