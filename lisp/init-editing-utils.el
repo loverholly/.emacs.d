@@ -26,6 +26,7 @@
  default-tab-width 8
  tab-width 8
  tab-always-indent 8
+ fill-column 120
  c-basic-offset 8
  c-default-style "linux"
  create-lockfiles nil
@@ -71,13 +72,6 @@
 (require-package 'mode-line-bell)
 (add-hook 'after-init-hook 'mode-line-bell-mode)
 
-
-
-(when (maybe-require-package 'beacon)
-  (setq-default beacon-lighter "")
-  (setq-default beacon-size 20)
-  (add-hook 'after-init-hook 'beacon-mode))
-
 
 
 ;;; Newline behaviour
@@ -103,7 +97,7 @@
   (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
 
-(setq-default fill-column 80)
+(setq-default fill-column 120)
 (when (boundp 'display-fill-column-indicator)
   (setq-default indicate-buffer-boundaries 'left)
   (setq-default display-fill-column-indicator-character ?\u254e)

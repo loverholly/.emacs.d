@@ -5,15 +5,14 @@
 ;;; Terraform
 
 (when (maybe-require-package 'terraform-mode)
-  (when (maybe-require-package 'company-terraform)
+  ;; TODO: find/write a replacement for company-terraform
     (with-eval-after-load 'terraform-mode
-      (company-terraform-init)
 
       ;; I find formatters based on "reformatter" to be more reliable
       ;; so I redefine `terraform-format-on-save-mode' here.
       (when (maybe-require-package 'reformatter)
         (reformatter-define terraform-format
-          :program "terraform" :args '("fmt" "-"))))))
+        :program "terraform" :args '("fmt" "-")))))
 
 (provide 'init-terraform)
 ;;; init-terraform.el ends here

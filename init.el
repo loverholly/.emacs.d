@@ -9,10 +9,10 @@
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;;(setq debug-on-error t)
 
-(let ((minver "25.1"))
+(let ((minver "26.1"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-(when (version< emacs-version "26.1")
+(when (version< emacs-version "27.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
@@ -75,6 +75,7 @@ Return the updated `exec-path'"
 (require 'init-uniquify)
 (require 'init-ibuffer)
 (require 'init-flycheck)
+(require 'init-eglot)
 
 (require 'init-recentf)
 ;;(require 'init-minibuffer)
@@ -91,7 +92,7 @@ Return the updated `exec-path'"
 (require 'init-tiny)
 (require 'init-helm)
 (require 'init-hippie-expand)
-(require 'init-company)
+(require 'init-corfu)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)
