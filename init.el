@@ -76,6 +76,7 @@ Return the updated `exec-path'"
 (require 'init-ibuffer)
 (require 'init-flycheck)
 (require 'init-eglot)
+(require 'init-highlight)
 
 (require 'init-recentf)
 ;;(require 'init-minibuffer)
@@ -85,7 +86,7 @@ Return the updated `exec-path'"
 (require 'init-amx)
 (require 'init-ace-window)
 (require 'init-mwim)
-(require 'init-undo-tree)
+;; (require 'init-undo-tree)
 (require 'init-which-key)
 (require 'init-marginalia)
 (require 'init-dashboard)
