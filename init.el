@@ -77,8 +77,10 @@ Return the updated `exec-path'"
 (require 'init-flycheck)
 (require 'init-eglot)
 (require 'init-highlight)
+(require 'init-treesitter)
 
 (require 'init-recentf)
+(require 'init-quickrun)
 ;;(require 'init-minibuffer)
 (require 'init-smex)
 (require 'init-gdb)
