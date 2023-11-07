@@ -119,6 +119,9 @@
 (add-hook 'c-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-mode-hook 'helm-gtags-mode)
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
+(add-hook 'c-ts-mode-hook 'helm-gtags-mode)
+(add-hook 'c++-ts-mode-hook 'helm-gtags-mode)
+(add-hook 'term-mode-hook 'helm-gtags-mode)
 
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-c C-j") 'helm-gtags-select)
