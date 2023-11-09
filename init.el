@@ -94,6 +94,7 @@ Return the updated `exec-path'"
 (require 'init-dashboard)
 (require 'init-tiny)
 (require 'init-helm)
+(require 'init-company)
 (require 'init-hippie-expand)
 (require 'init-corfu)
 (require 'init-windows)
