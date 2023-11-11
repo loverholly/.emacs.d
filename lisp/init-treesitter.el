@@ -10,31 +10,23 @@
 (require 'tree-sitter-langs)
 (require 'tree-sitter-query)
 (global-tree-sitter-mode)
-(add-hook 'c-mode #'tree-sitter-hl-mode)
+(add-hook 'c-or-c++-mode #'tree-sitter-hl-mode)
+(add-hook 'c-or-c++-ts-mode #'tree-sitter-hl-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;;; for parser best result
+(setq-default treesit-font-lock-level 4)
+(setq-default c-ts-mode-indent-offset 8)
+(setq-default c-ts-mode-indent-style 'linux)
 
-(defun my-indent-style()
-  "Override the built-in BSD indentation style with some additional rules"
-  `(;; Here are your custom rules
-    ((node-is ")") parent-bol 0)
-    ((match nil "argument_list" nil 1 1) parent-bol c-ts-mode-indent-offset)
-    ((parent-is "argument_list") prev-sibling 0)
-    ((match nil "parameter_list" nil 1 1) parent-bol c-ts-mode-indent-offset)
-    ((parent-is "parameter_list") prev-sibling 0)
-
-    ;; Append here the indent style you want as base
-    ,@(alist-get 'bsd (c-ts-mode--indent-styles 'cpp))))
-
-(use-package c-ts-mode
-  :if (treesit-language-available-p 'c)
-  :custom
-  (c-ts-mode-indent-offset 8)
-  (c-ts-mode-indent-style #'my-indent-style)
-  :init
-  ;; Remap the standard C/C++ modes
-  (add-to-list 'major-mode-remap-alist '(c-mode . c-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(c++-mode . c++-ts-mode))
-  (add-to-list 'major-mode-remap-alist '(c-or-c++-mode . c-or-c++-ts-mode)))
+(setq major-mode-remap-alist
+      '((yaml-mode . yaml-ts-mode)
+        (sh-mode . bash-ts-mode)
+        (js-mode . js-ts-mode)
+        (css-mode . css-ts-mode)
+        (c-mode . c-ts-mode)
+        (c++-mode . c++-ts-mode)
+        (c-or-c++-mode . c-or-c++-ts-mode)
+        (python-mode . python-ts-mode)))
 
 (setq tree-sitter-hl-mode t)
 
