@@ -20,22 +20,7 @@
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
-(defconst windowsp (eq system-type 'windows-nt))
-(when (eq system-type 'windows-nt)
-  (setq-default comint-process-echoes 'on)
-  (setenv "LC_ALL" "zh_CN.GBK")
-  (setenv "LC_TYPE" "zh_CN.GBK")
-  (setenv "LANG" "zh_CN.GBK"))
 
-(defun prepend-to-exec-path (path)
-  "prepend the path to the emacs intenral `exec-path' and \"PATH\" env variable.
-Return the updated `exec-path'"
-  (setenv "PATH" (concat (expand-file-name path)
-                         path-separator
-                         (getenv "PATH")))
-  (setq exec-path
-        (cons (expand-file-name path)
-              exec-path)))
 
 ;; Adjust garbage collection thresholds during startup, and thereafter
 
@@ -45,6 +30,10 @@ Return the updated `exec-path'"
   (add-hook 'emacs-startup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
+
+;; Process performance tuning
+(setq read-process-output-max (* 4 1024 1024))
+(setq process-adaptive-read-buffering nil)
 
 ;; Bootstrap config
 
@@ -77,7 +66,6 @@ Return the updated `exec-path'"
 (require 'init-flycheck)
 (require 'init-eglot)
 (require 'init-highlight)
-(require 'init-treesitter)
 
 (require 'init-recentf)
 (require 'init-quickrun)
@@ -143,9 +131,12 @@ Return the updated `exec-path'"
 (require 'init-terraform)
 (require 'init-nix)
 (maybe-require-package 'nginx-mode)
+(maybe-require-package 'just-mode)
+(maybe-require-package 'justl)
 
 (require 'init-paredit) ;;this is for lisp auto paredit, but i was a c/c++ coder
 (require 'init-lisp)
+(require 'init-sly)
 (require 'init-slime)
 (require 'init-clojure)
 (require 'init-clojure-cider)
@@ -161,17 +152,18 @@ Return the updated `exec-path'"
 (require 'init-folding)
 (require 'init-dash)
 
-;; (require 'init-twitter)
-;; (require 'init-mu)
 (require 'init-ledger)
 (require 'init-yasnippet)
 (require 'init-astyle)
 (require 'init-cppcheck)
+(require 'init-lua)
+(require 'init-uiua)
+(require 'init-terminals)
+
 ;; Extra packages which don't require any configuration
 
 (require-package 'sudo-edit)
 (require-package 'gnuplot)
-(require-package 'lua-mode)
 (require-package 'htmlize)
 (when *is-a-mac*
   (require-package 'osx-location))
@@ -186,6 +178,10 @@ Return the updated `exec-path'"
   (add-hook 'after-init-hook 'global-eldoc-mode))
 
 (require 'init-direnv)
+(when (and (require 'treesit nil t)
+           (fboundp 'treesit-available-p)
+           (treesit-available-p))
+  (require 'init-treesitter))
 
 
 

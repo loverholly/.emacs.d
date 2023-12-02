@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/purcell/emacs.d.png?branch=master)](https://travis-ci.org/purcell/emacs.d)
+[![Build Status](https://github.com/purcell/emacs.d/workflows/CI/badge.svg)](https://github.com/purcell/emacs.d/actions)
 <a href="https://www.patreon.com/sanityinc"><img alt="Support me" src="https://img.shields.io/badge/Support%20Me-%F0%9F%92%97-ff69b4.svg"></a>
 
 # A reasonable Emacs config
@@ -13,31 +13,35 @@ Emacs itself comes with support for many programming languages. This
 config adds improved defaults and extended support for the following, listed
 in the approximate order of how much I use them, from most to least:
 
-* Haskell / Elm
+* Haskell / Purescript / Elm / OCaml
 * Ruby / Ruby on Rails
+* SQL
 * CSS / LESS / SASS / SCSS
 * Javascript / Typescript / Coffeescript
 * HTML / HAML / Markdown / Textile / ERB
-* Rust
-* Python
-* Clojure (with Cider and nRepl)
 * Common Lisp (with Slime)
+* Python
+* Rust
+* Clojure (with Cider and nRepl)
 * PHP
 * Erlang
 
 In particular, there's a nice config for *autocompletion* with
-[company](https://company-mode.github.io/), and
-[flycheck](http://www.flycheck.org) is used to immediately highlight
-syntax errors in Ruby, Python, Javascript, Haskell and a number of
-other languages.
+[corfu](https://github.com/minad/corfu), and
+`flymake` (re-using backends from [flycheck](http://www.flycheck.org))
+is used to immediately highlight syntax errors in Ruby, Python,
+Javascript, Haskell and a number of other languages.
+
+LSP support is provided using `eglot`.
 
 ## Supported Emacs versions
 
-The config should run on Emacs 24.4 or greater and is designed to
-degrade smoothly - see the Travis build - but note that much newer
-versions are required for an increasing number of key packages, so to
-get full functionality you should use the latest Emacs version
-available to you.
+Use the latest released Emacs version available to you. The author
+typically uses the latest stable version.
+
+The config should run on Emacs 26.1 or greater and is designed to
+degrade smoothly - see the CI build - but even basic enhancements
+like completion may be unavailable if your Emacs is too old.
 
 Some Windows users might need to follow
 [these instructions](http://xn--9dbdkw.se/diary/how_to_enable_GnuTLS_for_Emacs_24_on_Windows/index.en.html)
@@ -67,8 +71,9 @@ running `M-x package-refresh-contents` before doing so.
 
 ## Updates
 
-Update the config with `git pull`. You'll probably also want/need to update
-the third-party packages regularly too:
+Update the config with `git pull`. You'll probably also want/need to
+update the third-party packages regularly too, because that's what I
+do, and the config assumes it:
 
 <kbd>M-x package-list-packages</kbd>, then <kbd>U</kbd> followed by <kbd>x</kbd>.
 
@@ -99,10 +104,6 @@ config remains compatible with the latest package and Emacs versions.
 
 *Please note that I cannot provide support for customised versions of
 this configuration.*
-
-## Similar configs
-
-You might also want to check out `emacs-starter-kit` and `prelude`.
 
 ## Support / issues
 

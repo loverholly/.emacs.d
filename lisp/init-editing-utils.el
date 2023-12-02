@@ -100,7 +100,7 @@
 (setq-default fill-column 120)
 (when (boundp 'display-fill-column-indicator)
   (setq-default indicate-buffer-boundaries 'left)
-  (setq-default display-fill-column-indicator-character ?\u254e)
+  (setq-default display-fill-column-indicator-character ?â”Š)
   (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode))
 
 
@@ -151,7 +151,7 @@
 (electric-pair-mode t)
 (add-hook 'after-init-hook 'show-paren-mode)
 (setq show-paren-style 'parenthesis)
-;; ÃÀ»¯ÏÔÊ¾·ûºÅ£¨elisp£©£¬±ÈÈçlambda»áÏÔÊ¾Îª¦Ë
+;; show symbols 
 (prettify-symbols-mode)
 
 ;;----------------------------------------------------------------------------
@@ -179,6 +179,8 @@
 ;;----------------------------------------------------------------------------
 ;; Handy key bindings
 ;;----------------------------------------------------------------------------
+(with-eval-after-load 'help
+  (define-key help-map "A" 'describe-face))
 (global-set-key (kbd "C-.") 'set-mark-command)
 (global-set-key (kbd "C-x C-.") 'pop-global-mark)
 
@@ -285,6 +287,9 @@ With arg N, insert N newlines."
 
 (global-set-key (kbd "C-o") 'sanityinc/open-line-with-reindent)
 
+
+;; M-^ is inconvenient, so also bind M-j
+(global-set-key (kbd "M-j") 'join-line)
 
 ;;----------------------------------------------------------------------------
 ;; Random line sorting
