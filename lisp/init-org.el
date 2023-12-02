@@ -49,8 +49,21 @@
       org-fast-tag-selection-single-key 'expert
       org-html-validation-link nil
       org-export-kill-product-buffer-when-displayed t
+      org-export-with-sub-superscripts nil
+      org-agenda-to-appt t
+      org-enforce-todo-dependencies t
+      org-src-fontify-natively t
+      org-export-with-toc t
+      org-export-preserve-breaks t
+      org-export-with-section-numbers 6
+      org-startup-indented t
+      mark-holidays-in-calendar t
+      org-support-shift-select t
       org-tags-column 80)
 
+(setq org-agenda-list (list "~/.emacs.d/org"))
+(setq org-agenda-files (list "~/.emacs.d/org"))
+(setq org-default-notes-file (list "~/.emacs.d/org"))
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
 
@@ -58,7 +71,6 @@
 (with-eval-after-load 'org-agenda
   (add-hook 'org-agenda-mode-hook
             (lambda () (add-hook 'window-configuration-change-hook 'org-agenda-align-tags nil t))))
-
 
 
 
@@ -117,7 +129,6 @@ typical word processor."
          "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
         ))
 
-
 
 ;;; Refiling
 
@@ -170,12 +181,10 @@ typical word processor."
       (quote (("NEXT" :inherit warning)
               ("PROJECT" :inherit font-lock-string-face))))
 
-
 
 ;;; Agenda views
 
 (setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
-
 
 (let ((active-project-match "-INBOX/PROJECT"))
 
@@ -283,11 +292,29 @@ typical word processor."
 (setq org-time-clocksum-format
       '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
 
+(setq org-capture-templates
+      '(("w" "work" entry (file+headline "~/.emacs.d/org/projects.org" "projects")
+             "* TODO %?\n %i\n")
+        ("h" "Home" entry (file+datetree "~/.emacs.d/org/home.org")
+         "* %?\nEntered on %U\n %i\n")
+        ("n" "Note" entry (file+datetree "~/.emacs.d/org/notes.org")
+         "* %?\nEntered on %U\n %i\n")
+        ("s" "Study" entry (file "~/.emacs.d/org/study.org")
+         "* %?\nEntered on %U\n %i\n")
+        ("f" "Funy" entry (file+datetree "~/.emacs.d/org/funy.org")
+         "* %?\nEntered on %U\n %i\n")
+        ))
 
 
 ;;; Show the clocked-in task - if any - in the header line
 (defun sanityinc/show-org-clock-in-header-line ()
   (setq-default header-line-format '((" " org-mode-line-string " "))))
+
+(defun org-summary-todo (n-done n-not-done)
+  "Switch entry to DONE when all subentries are done, to TODO otherwise."
+  (let (org-log-done org-log-states)   ; turn off logging
+    (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
 (defun sanityinc/hide-org-clock-from-header-line ()
   (setq-default header-line-format nil))
@@ -300,7 +327,6 @@ typical word processor."
   (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
   (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu))
 
-
 
 (when (and *is-a-mac* (file-directory-p "/Applications/org-clock-statusbar.app"))
   (add-hook 'org-clock-in-hook
@@ -310,19 +336,15 @@ typical word processor."
             (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e"
                                 "tell application \"org-clock-statusbar\" to clock out"))))
 
-
 
 ;; TODO: warn about inconsistent items, e.g. TODO inside non-PROJECT
 ;; TODO: nested projects!
-
 
 
 ;;; Archiving
 
 (setq org-archive-mark-done nil)
 (setq org-archive-location "%s_archive::* Archive")
-
-
 
 
 
@@ -384,6 +406,31 @@ typical word processor."
       (sql . t)
       (sqlite . t)))))
 
+(setq my-holidays
+      '(;; 公历节日
+        (holiday-fixed 1 1   "元旦节")
+        (holiday-fixed 2 14  "情人节")
+        (holiday-fixed 5 1   "劳动节")
+        (holiday-fixed 9 10  "教师节")
+        (holiday-fixed 10 1  "国庆节")
+        (holiday-float 6 0 3 "父亲节")
+        ;; 农历节日
+        (holiday-lunar 1 1   "春节"       0)
+        (holiday-lunar 1 15  "元宵节"     0)
+        (holiday-solar-term  "清明节"      )
+        (holiday-lunar 5 5   "端午节"     0)
+        (holiday-lunar 7 7   "七夕情人节" 0)
+        (holiday-lunar 8 15  "中秋节"     0)
+        ;; 纪念日
+        (holiday-lunar 10 15 "女儿生日"   0)
+        (holiday-lunar 11 05 "老婆生日"   0)
+        (holiday-lunar 04 14 "我的生日"   0)
+        (holiday-lunar 02 05 "父亲生日"   0)
+        (holiday-lunar 07 01 "母亲生日"   0)
+        (holiday-lunar 03 14 "姐姐生日"   0)
+        ))
+
+(setq calendar-holidays my-holidays)  ;只显示我定制的节假日
 
 (provide 'init-org)
 ;;; init-org.el ends here
