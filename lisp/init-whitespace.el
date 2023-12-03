@@ -16,17 +16,20 @@
   (setq-local show-trailing-whitespace nil))
 
 (dolist (hook '(special-mode-hook
-				Info-mode-hook
-				eww-mode-hook
-				term-mode-hook
-				c-mode-hook
-				comint-mode-hook
-				compilation-mode-hook
-				twittering-mode-hook
-				minibuffer-setup-hook
-				prog-mode-hook
-				text-mode-hook
-				conf-mode-hook))
+		Info-mode-hook
+		eww-mode-hook
+		term-mode-hook
+		c-mode-hook
+		c++-mode-hook
+		c-ts-mode-hook
+		c++-ts-mode-hook
+		comint-mode-hook
+		compilation-mode-hook
+		twittering-mode-hook
+		minibuffer-setup-hook
+		prog-mode-hook
+		text-mode-hook
+		conf-mode-hook))
   (add-hook hook #'sanityinc/hide-trailing-whitespace))
 
 (require-package 'whitespace-cleanup-mode)

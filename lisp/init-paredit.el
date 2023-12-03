@@ -5,7 +5,7 @@
 (require-package 'paredit)
 
 (defun sanityinc/maybe-map-paredit-newline ()
-  (unless (or (memq major-mode '(c-mode c++-mode inferior-emacs-lisp-mode cider-repl-mode))
+  (unless (or (memq major-mode '(c-mode c++-mode inferior-emacs-lisp-mode cider-repl-mode c-ts-mode c++-ts-mode))
               (minibufferp))
     (local-set-key (kbd "RET") 'paredit-newline)))
 
