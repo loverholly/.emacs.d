@@ -1,4 +1,4 @@
 [submodule "org"]
 	path = org
-	url = https://github.com/loverholly/org.git
+	url = git@github.com:loverholly/org.git
 	branch = master
