@@ -151,7 +151,7 @@
 (electric-pair-mode t)
 (add-hook 'after-init-hook 'show-paren-mode)
 (setq show-paren-style 'parenthesis)
-;; show symbols 
+;; show symbols
 (prettify-symbols-mode)
 
 ;;----------------------------------------------------------------------------
@@ -181,7 +181,7 @@
 ;;----------------------------------------------------------------------------
 (with-eval-after-load 'help
   (define-key help-map "A" 'describe-face))
-(global-set-key (kbd "C-.") 'set-mark-command)
+(global-set-key (kbd "C-x C-x") 'set-mark-command)
 (global-set-key (kbd "C-x C-.") 'pop-global-mark)
 
 (when (maybe-require-package 'avy)
