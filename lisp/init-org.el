@@ -293,8 +293,8 @@ typical word processor."
       '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
 
 (setq org-capture-templates
-      '(("w" "work" entry (file+headline "~/.emacs.d/org/projects.org" "projects")
-             "* TODO %?\n %i\n")
+      '(("p" "project" entry (file+headline "~/.emacs.d/org/projects.org" "projects")
+         "* TODO %?\n %i\n")
         ("h" "Home" entry (file+datetree "~/.emacs.d/org/home.org")
          "* %?\nEntered on %U\n %i\n")
         ("n" "Note" entry (file+datetree "~/.emacs.d/org/notes.org")
@@ -303,7 +303,11 @@ typical word processor."
          "* %?\nEntered on %U\n %i\n")
         ("f" "Funy" entry (file+datetree "~/.emacs.d/org/funy.org")
          "* %?\nEntered on %U\n %i\n")
-        ))
+	("i" "Issue" entry (file+datetree "~/.emacs.d/org/issue.org")
+         "* %?\nEntered on %U\n %i\n")
+	("w" "Week" entry (file+datetree "~/.emacs.d/org/week.org")
+         "* TODO %?\n %i\n")
+	))
 
 
 ;;; Show the clocked-in task - if any - in the header line
