@@ -3,6 +3,7 @@
 ;;; Code:
 
 (setq-default debugger-bury-or-kill 'kill)
+(setq inferior-lisp-program "sbcl")
 
 (require-package 'elisp-slime-nav)
 (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
