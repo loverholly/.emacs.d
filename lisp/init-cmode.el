@@ -18,5 +18,10 @@
                                        c-lineup-arglist))
 (c-set-offset 'statement-cont '(c-lineup-ternary-bodies +))
 
+(add-hook 'c-mode-common-hook 'hs-minor-mode)
+
+(require-package 'yasnippet)
+(yas-global-mode 1)
+
 (provide 'init-cmode)
 ;;; init-cmode.el ends here

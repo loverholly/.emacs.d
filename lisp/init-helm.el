@@ -135,4 +135,11 @@
 (define-key helm-gtags-mode-map (kbd "C-c C-g") 'helm-gtags-create-tags)
 ;; (define-key helm-gtags-mode-map (kbd "C-c C-j") 'helm-gtags-find-symbol)
 
+(setq-local imenu-create-index-function #'ggtags-build-imenu-index)
+
+(require-package 'stickyfunc-enhance)
+(add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
+(setq-local eldoc-documentation-function #'ggtags-eldoc-function)
+(projectile-global-mode)
+
 (provide 'init-helm)
