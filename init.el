@@ -68,6 +68,7 @@
 (require 'init-highlight)
 (require 'init-cmake)
 (require 'init-treemacs)
+(require 'init-evil)
 
 (require 'init-recentf)
 (require 'init-quickrun)
