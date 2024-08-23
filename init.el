@@ -69,6 +69,7 @@
 (require 'init-cmake)
 (require 'init-treemacs)
 (require 'init-evil)
+(require 'init-nhexl)
 
 (require 'init-recentf)
 (require 'init-quickrun)
