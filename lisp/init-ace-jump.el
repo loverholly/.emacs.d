@@ -2,7 +2,6 @@
 ;;; Commentary:
 
 (require-package 'ace-jump-mode)
-(ace-jump-mode t)
 (global-set-key (kbd "C-x o") 'ace-jump-mode)
 
 (provide 'init-ace-jump)
