@@ -5,7 +5,7 @@
 (require-package 'paredit)
 
 (defun sanityinc/maybe-map-paredit-newline ()
-  (unless (or (memq major-mode '(c-mode c++-mode inferior-emacs-lisp-mode cider-repl-mode c-ts-mode c++-ts-mode))
+  (unless (or (derived-mode-p '(c-mode c++-mode inferior-emacs-lisp-mode cider-repl-mode c-ts-mode c++-ts-mode))
               (minibufferp))
     (local-set-key (kbd "RET") 'paredit-newline)))
 
@@ -39,6 +39,20 @@
     (enable-paredit-mode)))
 
 (add-hook 'sanityinc/lispy-modes-hook 'enable-paredit-mode)
+
+(when (maybe-require-package 'puni)
+  ;;(add-hook 'prog-mode-hook 'puni-mode)
+  (add-hook 'sanityinc/lispy-modes-hook (lambda () (puni-mode -1)))
+  (with-eval-after-load 'puni
+    (define-key puni-mode-map (kbd "M-(") 'puni-wrap-round)
+    (define-key puni-mode-map (kbd "C-(") 'puni-slurp-backward)
+    (define-key puni-mode-map (kbd "C-)") 'puni-slurp-forward)
+    (define-key puni-mode-map (kbd "C-}") 'puni-barf-forward)
+    (define-key puni-mode-map (kbd "C-{") 'puni-barf-backward)
+    (define-key puni-mode-map (kbd "M-<up>") 'puni-splice-killing-backward)
+    (define-key puni-mode-map (kbd "C-w") nil)))
+
+
 
 (provide 'init-paredit)
 ;;; init-paredit.el ends here

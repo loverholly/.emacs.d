@@ -49,16 +49,6 @@
       org-fast-tag-selection-single-key 'expert
       org-html-validation-link nil
       org-export-kill-product-buffer-when-displayed t
-      org-export-with-sub-superscripts nil
-      org-agenda-to-appt t
-      org-enforce-todo-dependencies t
-      org-src-fontify-natively t
-      org-export-with-toc t
-      org-export-preserve-breaks t
-      org-export-with-section-numbers 6
-      org-startup-indented t
-      mark-holidays-in-calendar t
-      org-support-shift-select t
       org-tags-column 80)
 
 (setq org-agenda-list (list "~/.emacs.d/org"))
