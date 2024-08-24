@@ -1,6 +1,53 @@
-;;; init-treesitter.el --- Enable Treesitter-based major modes -*- lexical-binding: t -*-
+;;; init-treesitter.el
 ;;; Commentary:
 ;;; Code:
+
+(require-package 'treesit-auto)
+(require-package 'tree-sitter)
+(require-package 'tree-sitter-langs)
+(require 'tree-sitter)
+(require 'tree-sitter-hl)
+(require 'tree-sitter-langs)
+(require 'tree-sitter-query)
+(global-tree-sitter-mode)
+(add-hook 'c-or-c++-mode #'tree-sitter-hl-mode)
+(add-hook 'c-or-c++-ts-mode #'tree-sitter-hl-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+;;; for parser best result
+(setq-default treesit-font-lock-level 4)
+(setq-default c-ts-mode-indent-offset 8)
+(setq-default c-ts-mode-indent-style 'linux)
+
+(setq major-mode-remap-alist
+      '((yaml-mode . yaml-ts-mode)
+        (sh-mode . bash-ts-mode)
+        (js-mode . js-ts-mode)
+        (css-mode . css-ts-mode)
+        (c-mode . c-ts-mode)
+        (c++-mode . c++-ts-mode)
+        (c-or-c++-mode . c-or-c++-ts-mode)
+        (python-mode . python-ts-mode)))
+
+(setq tree-sitter-hl-mode t)
+
+(setq treesit-language-source-alist
+      '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+	(cmake "https://github.com/uyha/tree-sitter-cmake")
+	(css "https://github.com/tree-sitter/tree-sitter-css")
+	(elisp "https://github.com/Wilfred/tree-sitter-elisp")
+	(go "https://github.com/tree-sitter/tree-sitter-go")
+	(html "https://github.com/tree-sitter/tree-sitter-html")
+	(javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+	(json "https://github.com/tree-sitter/tree-sitter-json")
+	(make "https://github.com/alemuller/tree-sitter-make")
+	(markdown "https://github.com/ikatyang/tree-sitter-markdown")
+	(python "https://github.com/tree-sitter/tree-sitter-python")
+	(toml "https://github.com/tree-sitter/tree-sitter-toml")
+	(cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+	(c "https://github.com/tree-sitter/tree-sitter-c")
+	(tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+	(typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+	(yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
 ;; You can download per-architecture pre-compiled release from
 ;; https://github.com/emacs-tree-sitter/tree-sitter-langs Rename
@@ -13,9 +60,8 @@
 ;; Note that grammar files from different sources can be differently
 ;; named and configured, so there could be different results. Some
 ;; common remappings are included below.
-
-
-;;; Enable built-in and pre-installed TS modes if the grammars are available
+(setq treesit-load-name-override-list nil
+      major-mode-remap-alist nil)
 
 (defun sanityinc/auto-configure-treesitter ()
   "Find and configure installed grammars, remap to matching -ts-modes if present.
@@ -43,7 +89,6 @@ Return a list of languages seen along the way."
                 (let ((ts-mode-name (intern (concat emacs-lang "-ts-mode")))
                       (regular-mode-name (intern (concat emacs-lang "-mode"))))
                   (when (fboundp ts-mode-name)
-                    (message "init-treesitter: using %s in place of %s" ts-mode-name regular-mode-name)
                     (add-to-list 'major-mode-remap-alist
                                  (cons regular-mode-name ts-mode-name))))
                 ;; Remember we saw this language so we don't squash its config when we
@@ -52,26 +97,6 @@ Return a list of languages seen along the way."
     seen-grammars))
 
 (sanityinc/auto-configure-treesitter)
-
-
-;;; Support remapping of additional libraries
-
-(defun sanityinc/remap-ts-mode (non-ts-mode ts-mode grammar)
-  "Explicitly remap NON-TS-MODE to TS-MODE if GRAMMAR is available."
-  (when (and (fboundp 'treesit-ready-p)
-             (treesit-ready-p grammar t)
-             (fboundp ts-mode))
-    (add-to-list 'major-mode-remap-alist (cons non-ts-mode ts-mode))))
-
-;; When there's js-ts-mode, we also prefer it to js2-mode
-(sanityinc/remap-ts-mode 'js2-mode 'js-ts-mode 'javascript)
-(sanityinc/remap-ts-mode 'clojurescript-mode 'clojurescript-ts-mode 'clojure)
-
-
-;; Default
-(setq treesit-font-lock-level 4)
-
-
 
 (provide 'init-treesitter)
 ;;; init-treesitter.el ends here
