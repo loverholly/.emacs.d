@@ -4,6 +4,7 @@
 (require-package 'evil)
 (require-package 'evil-visual-mark-mode)
 (require-package 'evil-visual-replace)
+(require-package 'evil-search-highlight-persist)
 
 (evil-mode 1)
 (evil-visual-mark-mode 1)
