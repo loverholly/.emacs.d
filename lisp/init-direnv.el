@@ -7,6 +7,8 @@
     (define-key envrc-mode-map (kbd "C-c e") 'envrc-command-map))
   (add-hook 'after-init-hook 'envrc-global-mode))
 
+(require-package 'dirvish)
+
 (provide 'init-direnv)
 
 ;;; init-direnv.el ends here
