@@ -70,6 +70,7 @@
 (require 'init-treemacs)
 ;;(require 'init-evil)
 (require 'init-nhexl)
+(require 'init-iedit)
 
 (require 'init-recentf)
 (require 'init-quickrun)
