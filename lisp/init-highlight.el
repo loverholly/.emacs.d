@@ -5,7 +5,7 @@
 (require-package 'highlight-parentheses)
 
 (global-set-key (kbd "<f3>") 'highlight-symbol)
-(highlight-parentheses-mode 1)
+(setq-default global-highlight-parentheses-mode t)
 
 (provide 'init-highlight)
 ;;; init-highlight.el ends here
