@@ -41,8 +41,7 @@
 (with-eval-after-load 'whitespace-cleanup-mode
   (diminish 'whitespace-cleanup-mode))
 
-(setq whitespace-style '(face empty lines-tail trailing))
-(global-whitespace-mode t)
+(setq-default global-whitespace-mode t)
 
 (setq-default whitespace-cleanup-mode t)
 
