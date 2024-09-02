@@ -4,6 +4,8 @@
 (require-package 'helm-core)
 (require-package 'helm-swoop)
 (require-package 'helm-gtags)
+(require-package 'helm-smex)
+
 ;;(require 'helm-config)
 (require 'helm-grep)
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
