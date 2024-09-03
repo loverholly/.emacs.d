@@ -41,6 +41,8 @@
 (with-eval-after-load 'whitespace-cleanup-mode
   (diminish 'whitespace-cleanup-mode))
 
+(setq whitespace-style '(face empty tabs lines-tail trailing-whitespace))
+
 (setq-default global-whitespace-mode t)
 
 (setq-default whitespace-cleanup-mode t)
