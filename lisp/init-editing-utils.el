@@ -230,6 +230,9 @@
 (global-set-key [M-down] 'move-dup-move-lines-down)
 (global-set-key [M-S-up] 'move-dup-move-lines-up)
 (global-set-key [M-S-down] 'move-dup-move-lines-down)
+;; add the tab for tab indent support
+(global-set-key (kbd "TAB") 'tab-to-tab-stop)
+
 
 (global-set-key (kbd "C-c d") 'move-dup-duplicate-down)
 (global-set-key (kbd "C-c u") 'move-dup-duplicate-up)
