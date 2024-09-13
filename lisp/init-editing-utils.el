@@ -10,6 +10,9 @@
 
 (maybe-require-package 'list-unicode-display)
 
+(require-package 'color-identifiers-mode)
+(global-color-identifiers-mode)
+
 
 ;;; Some basic preferences
 

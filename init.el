@@ -68,7 +68,7 @@
 (require 'init-highlight)
 (require 'init-cmake)
 (require 'init-treemacs)
-;;(require 'init-evil)
+(require 'init-evil)
 (require 'init-nhexl)
 (require 'init-iedit)
 
