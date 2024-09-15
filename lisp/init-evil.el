@@ -12,7 +12,6 @@
 (global-evil-search-highlight-persist t)
 (powerline-vim-theme)
 (display-time-mode t)
-(setq make-backup-files nil)
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 
