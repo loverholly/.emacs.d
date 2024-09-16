@@ -90,7 +90,31 @@
          (compilation-buffer-name-function (lambda (major-mode-name) "*git-svn*")))
     (compile (concat "git svn " command))))
 
+(eval-after-load 'vc-msg-git
+  '(progn
+     ;; show code of commit
+     (setq vc-msg-git-show-commit-function 'magit-show-commit)
+     ;; open file of certain revision
+     (push '("m"
+             "[m]agit-find-file"
+             (lambda ()
+               (let* ((info vc-msg-previous-commit-info)
+                      (git-dir (locate-dominating-file default-directory ".git")))
+                 (magit-find-file (plist-get info :id )
+                                  (concat git-dir (plist-get info :filename))))))
+           vc-msg-git-extra)))
+
 (require-package 'gited)
+(require-package 'vc-msg)
+
+(defun vc-msg-hook-setup (vcs-type commit-info)
+  ;; copy commit id to clipboard
+  (message (format "%s\n%s\n%s\n%s"
+                   (plist-get commit-info :id)
+                   (plist-get commit-info :author)
+                   (plist-get commit-info :author-time)
+                   (plist-get commit-info :author-summary))))
+(add-hook 'vc-msg-hook 'vc-msg-hook-setup)
 
 (provide 'init-git)
 ;;; init-git.el ends here
