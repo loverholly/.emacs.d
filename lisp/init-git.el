@@ -47,8 +47,7 @@
 (with-eval-after-load 'magit
   (fullframe magit-status magit-mode-quit-window))
 
-;;(when (maybe-require-package 'git-commit)
-;;  (add-hook 'git-commit-mode-hook 'goto-address-mode))
+(add-hook 'git-commit-mode-hook 'goto-address-mode)
 
 
 ;; Convenient binding for vc-git-grep
