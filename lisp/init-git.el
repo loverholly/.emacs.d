@@ -115,6 +115,7 @@
                    (plist-get commit-info :author-time)
                    (plist-get commit-info :author-summary))))
 (add-hook 'vc-msg-hook 'vc-msg-hook-setup)
+(global-set-key (kbd "C-c j") 'vc-msg-show)
 
 (provide 'init-git)
 ;;; init-git.el ends here
