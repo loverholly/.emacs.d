@@ -11,6 +11,6 @@
 	  (shell-command-to-string (format "%s %s" format-command file))
 	  (message "Code formatted"))))
 
-(global-set-key  (kbd "C-c i") 'format-code)
+(global-set-key  (kbd "C-c y") 'format-code)
 
 (provide 'init-astyle)
