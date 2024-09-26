@@ -348,10 +348,10 @@ With arg N, insert N newlines."
 (global-set-key (kbd "RET") 'newline-and-indent)  ; automatically indent when press RET
 (global-set-key (kbd "M-g")  'goto-line)
 
-(global-set-key [f8] 'shell)
+(global-set-key [f8] 'ansi-term)
 
 (when (eq system-type 'linux)
-  (setq shell-file-name "/bin/bash"))
+  (setq shell-file-name "/bin/zsh"))
 
 (defun sanityinc/disable-features-during-macro-call (orig &rest args)
   "When running a macro, disable features that might be expensive.
