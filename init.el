@@ -166,6 +166,7 @@
 (require 'init-lua)
 (require 'init-uiua)
 (require 'init-terminals)
+(require 'pyim)
 
 ;; Extra packages which don't require any configuration
 
