@@ -169,6 +169,7 @@
 (require 'init-pyim)
 (require 'init-autodim)
 (require 'init-auctex)
+(require 'init-bash)
 
 ;; Extra packages which don't require any configuration
 
