@@ -168,6 +168,7 @@
 (require 'init-terminals)
 (require 'init-pyim)
 (require 'init-autodim)
+(require 'init-auctex)
 
 ;; Extra packages which don't require any configuration
 
