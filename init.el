@@ -171,6 +171,7 @@
 (require 'init-autodim)
 (require 'init-auctex)
 (require 'init-bash)
+(require 'init-fflp)
 
 ;; Extra packages which don't require any configuration
 

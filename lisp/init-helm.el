@@ -5,6 +5,7 @@
 (require-package 'helm-swoop)
 (require-package 'helm-gtags)
 (require-package 'helm-smex)
+(require-package 'helm-dired-recent-dirs)
 
 ;;(require 'helm-config)
 (require 'helm-grep)

@@ -330,6 +330,7 @@ With arg N, insert N newlines."
 	(indent-region (point-min) (point-max) nil)))
 
 (global-set-key (kbd "<f7>") 'indent-buffer)
+(global-set-key (kbd "C-c w") 'delete-window)
 
 (defun refresh-file ()
   (interactive)
