@@ -172,6 +172,7 @@
 (require 'init-auctex)
 (require 'init-bash)
 (require 'init-fflp)
+(require 'init-keyfreq)
 
 ;; Extra packages which don't require any configuration
 
