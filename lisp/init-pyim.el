@@ -3,6 +3,7 @@
 
 (require-package 'pyim)
 (require-package 'pyim-basedict)
+(require-package 'ace-pinyin)
 (pyim-basedict-enable)
 (setq default-input-method "pyim")
 (setq-default pyim-punctuation-translate-p '(auto))

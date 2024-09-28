@@ -426,5 +426,9 @@ typical word processor."
 
 (setq calendar-holidays my-holidays)  ;只显示我定制的节假日
 
+(require-package 'denote)
+(require-package 'xeft)
+(require-package 'org-journal)
+
 (provide 'init-org)
 ;;; init-org.el ends here
