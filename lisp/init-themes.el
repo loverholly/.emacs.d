@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'color-theme-sanityinc-solarized)
-(require-package 'color-theme-sanityinc-tomorrow)
 (require-package 'dracula-theme)
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
@@ -22,23 +20,6 @@
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
 (add-hook 'after-init-hook 'reapply-themes)
-
-
-
-;; Toggle between light and dark
-
-(defun light ()
-  "Activate a light color theme."
-  (interactive)
-  (setq custom-enabled-themes '(sanityinc-tomorrow-day))
-  (reapply-themes))
-
-(defun dark ()
-  "Activate a dark color theme."
-  (interactive)
-  (setq custom-enabled-themes '(sanityinc-tomorrow-bright))
-  (reapply-themes))
-
 
 (when (maybe-require-package 'dimmer)
   (setq-default dimmer-fraction 0.15)
