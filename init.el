@@ -179,6 +179,7 @@
 (require 'init-bash)
 (require 'init-fflp)
 (require 'init-keyfreq)
+(require 'init-log4j)
 
 ;; Extra packages which don't require any configuration
 
