@@ -97,7 +97,9 @@
 
 (when (fboundp 'display-line-numbers-mode)
   (setq-default display-line-numbers-width 3)
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  (add-hook 'yaml-mode-hook 'display-line-numbers-mode)
+  (add-hook 'yaml-ts-mode-hook 'display-line-numbers-mode))
 
 
 (setq-default fill-column 120)
@@ -173,6 +175,9 @@
 
 ;; Show matching parens
 (add-hook 'after-init-hook 'show-paren-mode)
+
+(when (fboundp 'repeat-mode)
+  (add-hook 'after-init-hook 'repeat-mode))
 
 ;;----------------------------------------------------------------------------
 ;; Rectangle selections, and overwrite text when the selection is active
@@ -260,7 +265,6 @@
 (with-eval-after-load 'whole-line-or-region
   (diminish 'whole-line-or-region-local-mode))
 
-
 
 (defun sanityinc/open-line-with-reindent (n)
   "A version of `open-line' which reindents the start and end positions.
@@ -295,9 +299,8 @@ With arg N, insert N newlines."
 ;; M-^ is inconvenient, so also bind M-j
 (global-set-key (kbd "M-j") 'join-line)
 
-;;----------------------------------------------------------------------------
+
 ;; Random line sorting
-;;----------------------------------------------------------------------------
 (defun sanityinc/sort-lines-random (beg end)
   "Sort lines in region from BEG to END randomly."
   (interactive "r")
@@ -309,7 +312,6 @@ With arg N, insert N newlines."
           ((inhibit-field-text-motion t))
         (sort-subr nil 'forward-line 'end-of-line nil nil
                    (lambda (s1 s2) (eq (random 2) 0)))))))
-
 
 
 

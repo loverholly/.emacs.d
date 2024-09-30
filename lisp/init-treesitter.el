@@ -21,6 +21,7 @@
         (python-mode . python-ts-mode)))
 
 (setq tree-sitter-hl-mode t)
+(setq treesit-font-lock-level 4)
 
 (provide 'init-treesitter)
 ;;; init-treesitter.el ends here

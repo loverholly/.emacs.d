@@ -2,7 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(maybe-require-package 'flymake "1.2.1")
+(require-package 'flymake)
+(require-package 'helm-flymake)
+(require-package 'flymake-codespell)
 
 ;; Use flycheck checkers with flymake, to extend its coverage
 (when (maybe-require-package 'flymake-flycheck)

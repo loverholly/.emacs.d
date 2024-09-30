@@ -44,6 +44,8 @@
 (maybe-require-package 'magit-todos)
 
 (require-package 'fullframe)
+(fullframe list-packages quit-window)
+
 (with-eval-after-load 'magit
   (fullframe magit-status magit-mode-quit-window))
 
