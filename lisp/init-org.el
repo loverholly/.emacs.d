@@ -429,6 +429,10 @@ typical word processor."
 (require-package 'denote)
 (require-package 'xeft)
 (require-package 'org-journal)
+(require-package 'org-roam)
+
+(setq org-roam-directory "~/.emacs.d/roam-notes/") ;; 默认笔记目录, 提前手动创建好
+(setq org-roam-db-gc-threshold most-positive-fixnum) ;; 提高性能
 
 (provide 'init-org)
 ;;; init-org.el ends here
