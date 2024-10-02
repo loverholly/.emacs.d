@@ -5,7 +5,7 @@
 (require-package 'treesit-auto)
 (require-package 'tree-sitter)
 (require-package 'tree-sitter-langs)
-(require-package 'treesit-ispell)
+(require-package 'tree-sitter-ispell)
 
 (require 'tree-sitter)
 (require 'tree-sitter-hl)
