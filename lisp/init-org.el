@@ -284,19 +284,19 @@ typical word processor."
 
 (setq org-capture-templates
       '(("p" "project" entry (file+headline "~/.emacs.d/org/projects.org" "projects")
-         "* TODO %?\n %i\n")
+         "* TODO %? \n %i\n")
         ("h" "Home" entry (file+datetree "~/.emacs.d/org/home.org")
-         "* %?\nEntered on %U\n %i\n")
-        ("n" "Note" entry (file+datetree "~/.emacs.d/org/notes.org")
-         "* %?\nEntered on %U\n %i\n")
+         "* %? \nEntered on %U\n %i\n")
+        ("n" "Notes" entry (file+datetree "~/.emacs.d/org/notes.org")
+         "* %? \nEntered on %U\n %i\n")
         ("s" "Study" entry (file "~/.emacs.d/org/study.org")
-         "* %?\nEntered on %U\n %i\n")
+         "* %? \nEntered on %U\n %i\n")
         ("f" "Funy" entry (file+datetree "~/.emacs.d/org/funy.org")
-         "* %?\nEntered on %U\n %i\n")
+         "* %? \nEntered on %U\n %i\n")
 	("i" "Issue" entry (file+datetree "~/.emacs.d/org/issue.org")
-         "* %?\nEntered on %U\n %i\n")
+         "* TODO %? \nEntered on %U\n %i\n")
 	("w" "Week" entry (file+datetree "~/.emacs.d/org/week.org")
-         "* TODO %?\n %i\n")
+         "* TODO %? \n %i\n")
 	))
 
 
@@ -430,6 +430,17 @@ typical word processor."
 (require-package 'xeft)
 (require-package 'org-journal)
 (require-package 'org-roam)
+(require-package 'org-noter)
+(require-package 'org-gtd)
+(require-package 'org-grep)
+(require-package 'org2blog)
+(require-package 'orgnote)
+(require-package 'org-ref)
+(require-package 'org-projectile)
+(require-package 'org-pdftools)
+(require-package 'org-noter-pdftools)
+
+(setq org-cycle-include-plain-lists 'integrate)
 
 (setq org-roam-directory "~/.emacs.d/roam-notes/") ;; 默认笔记目录, 提前手动创建好
 (setq org-roam-db-gc-threshold most-positive-fixnum) ;; 提高性能
