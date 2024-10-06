@@ -7,7 +7,7 @@
 
 (setq undo-tree-visualizer-timestamps t)
 (setq undo-tree-visualizer-diff t)
-(setq undo-tree-auto-save-history t)
+(setq undo-tree-auto-save-history nil)
 (setq undo-tree-history-directory-alist
       '(("." . "~/.saves/")))
 

@@ -14,6 +14,9 @@
 (display-time-mode t)
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+(define-key evil-motion-state-map (kbd "RET") 'nil)
+(setq evil-want-keybinding nil)
+(setq evil-want-C-u-scroll t)
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
