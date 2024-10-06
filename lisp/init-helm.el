@@ -100,6 +100,8 @@
 
 ;; If nil, you can slightly boost invoke speed in exchange for text color
 (setq helm-swoop-speed-or-color t)
+(setq helm-gtags-update-interval-second 30)
+(setq helm-gtags-path-style 'relative)
 
 (helm-mode 1)
 
@@ -125,6 +127,7 @@
 (add-hook 'c-ts-mode-hook 'helm-gtags-mode)
 (add-hook 'c++-ts-mode-hook 'helm-gtags-mode)
 (add-hook 'term-mode-hook 'helm-gtags-mode)
+(add-hook 'prog-mode-hook 'helm-gtags-mode)
 
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-c C-j") 'helm-gtags-select)
