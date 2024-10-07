@@ -28,6 +28,8 @@
 (define-key evil-normal-state-map (kbd "] SPC") (lambda () (interactive) (evil-insert-newline-below) (forward-line -1)))
 (define-key evil-normal-state-map (kbd "[ b") 'previous-buffer)
 (define-key evil-normal-state-map (kbd "] b") 'next-buffer)
+(define-key evil-normal-state-map
+  (kbd "gd") 'helm-gtags-dwim)
 
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
