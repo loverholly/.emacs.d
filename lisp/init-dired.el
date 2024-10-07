@@ -4,7 +4,6 @@
 
 (require-package 'dired-subtree)
 (require-package 'dired-rainbow)
-(require-package 'dired-single)
 (require-package 'dired-rsync)
 (require-package 'dired-sidebar)
 (require-package 'ibuffer-sidebar)

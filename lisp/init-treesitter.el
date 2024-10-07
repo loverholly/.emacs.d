@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'tree-sitter-ispell)
-
 (add-hook 'c-or-c++-mode #'tree-sitter-hl-mode)
 (add-hook 'c-or-c++-ts-mode #'tree-sitter-hl-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
