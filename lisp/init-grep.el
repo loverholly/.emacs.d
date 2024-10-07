@@ -5,6 +5,7 @@
 (setq-default grep-highlight-matches t
               grep-scroll-output t)
 
+
 (when *is-a-mac*
   (setq-default locate-command "mdfind"))
 
@@ -23,6 +24,7 @@
            (maybe-require-package 'rg))
   (global-set-key (kbd "M-?") 'rg-project))
 
+(setq wgrep-auto-save-buffer t)
 
 (provide 'init-grep)
 ;;; init-grep.el ends here

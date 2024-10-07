@@ -54,6 +54,7 @@
 (setq org-agenda-list (list "~/.emacs.d/org"))
 (setq org-agenda-files (list "~/.emacs.d/org"))
 (setq org-default-notes-file (list "~/.emacs.d/org"))
+(setq org-agenda-span 'day)
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
 

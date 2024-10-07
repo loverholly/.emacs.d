@@ -21,21 +21,23 @@
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 (define-key evil-motion-state-map (kbd "RET") 'nil)
-(define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
-(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
 
-(evil-leader/set-key
-  "ff" 'find-file
-  "bb" 'switch-to-buffer
-  "0"  'select-window-0
-  "1"  'select-window-1
-  "2"  'select-window-2
-  "3"  'select-window-3
-  "w/" 'split-window-right
-  "w-" 'split-window-below
-  ":"  'counsel-M-x
-  "wM" 'delete-other-windows
-  )
+(setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map [escape] 'evil-normal-state)
+(define-key evil-normal-state-map (kbd "[ SPC") (lambda () (interactive) (evil-insert-newline-above) (forward-line)))
+(define-key evil-normal-state-map (kbd "] SPC") (lambda () (interactive) (evil-insert-newline-below) (forward-line -1)))
+(define-key evil-normal-state-map (kbd "[ b") 'previous-buffer)
+(define-key evil-normal-state-map (kbd "] b") 'next-buffer)
+
+(evil-define-key 'normal dired-mode-map
+  (kbd "<RET>") 'dired-find-alternate-file
+  (kbd "C-k") 'dired-up-directory
+  "`" 'dired-open-term
+  "o" 'dired-find-file-other-window
+  "s" 'hydra-dired-quick-sort/body
+  "z" 'dired-get-size
+  "!" 'zilongshanren/do-shell-and-copy-to-kill-ring
+  ")" 'dired-omit-mode)
 
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
