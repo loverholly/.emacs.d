@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+(require-package 'flyspell-correct)
 (require 'ispell)
 
 (when (executable-find ispell-program-name)
