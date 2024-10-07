@@ -108,6 +108,7 @@ Call a second time to restore the original window configuration."
   (add-hook 'after-init-hook (apply-partially 'windmove-default-keybindings 'control))
   (add-hook 'after-init-hook (apply-partially 'windswap-default-keybindings 'shift 'control)))
 
+(require-package 'buffer-move)
 
 (provide 'init-windows)
 ;;; init-windows.el ends here
