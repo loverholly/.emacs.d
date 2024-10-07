@@ -181,6 +181,7 @@
 (require 'init-keyfreq)
 (require 'init-log4j)
 (require 'init-ctabs)
+(require 'init-fanyi)
 ;;(require 'init-emojify)
 
 ;; Extra packages which don't require any configuration
