@@ -29,16 +29,6 @@
 (define-key evil-normal-state-map (kbd "[ b") 'previous-buffer)
 (define-key evil-normal-state-map (kbd "] b") 'next-buffer)
 
-(evil-define-key 'normal dired-mode-map
-  (kbd "<RET>") 'dired-find-alternate-file
-  (kbd "C-k") 'dired-up-directory
-  "`" 'dired-open-term
-  "o" 'dired-find-file-other-window
-  "s" 'hydra-dired-quick-sort/body
-  "z" 'dired-get-size
-  "!" 'zilongshanren/do-shell-and-copy-to-kill-ring
-  ")" 'dired-omit-mode)
-
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
 
