@@ -16,6 +16,7 @@
 (add-hook 'c-or-c++-ts-mode #'tree-sitter-hl-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 ;;; for parser best result
+(setq-default tree-sitter-hl-mode t)
 (setq-default treesit-font-lock-level 4)
 (setq-default c-ts-mode-indent-offset 8)
 (setq-default c-ts-mode-indent-style 'linux)
@@ -30,8 +31,6 @@
         (c-or-c++-mode . c-or-c++-ts-mode)
         (python-mode . python-ts-mode)))
 
-(setq tree-sitter-hl-mode t)
-(setq treesit-font-lock-level 4)
 
 (setq treesit-language-source-alist
       '((bash "https://github.com/tree-sitter/tree-sitter-bash")
