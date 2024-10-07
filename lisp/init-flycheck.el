@@ -9,6 +9,17 @@
   (when (maybe-require-package 'flycheck-color-mode-line)
     (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode)))
 
+(require-package 'flycheck-pkg-config)
+(require-package 'flycheck-irony)
+(require-package 'flycheck-checkbashisms)
+(require-package 'flycheck-ledger)
+(require-package 'flycheck-pycheckers)
+
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+(eval-after-load 'flycheck
+  '(require 'flycheck-ledger))
+(eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-checkbashisms-setup))
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
