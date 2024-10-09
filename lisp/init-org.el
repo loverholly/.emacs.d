@@ -174,6 +174,15 @@ typical word processor."
 
 
 ;;; Agenda views
+(setq org-highest-priority ?A)
+(setq org-lowest-priority  ?D)
+(setq org-default-priority ?D)
+(setq org-priority-faces
+      '((?A . (:background "red" :foreground "white" :weight bold))
+        (?B . (:background "DarkOrange" :foreground "white" :weight bold))
+        (?C . (:background "yellow" :foreground "DarkGreen" :weight bold))
+        (?D . (:background "DodgerBlue" :foreground "black" :weight bold))
+        ))
 
 (setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
 
