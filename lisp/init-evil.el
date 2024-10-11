@@ -6,6 +6,7 @@
 (require-package 'evil-visual-replace)
 (require-package 'evil-search-highlight-persist)
 (require-package 'powerline)
+(require-package 'goto-chg)
 (require-package 'evil-leader)
 (require-package 'evil-surround)
 (require-package 'evil-nerd-commenter)
@@ -20,6 +21,7 @@
 
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+(define-key evil-normal-state-map (kbd "<tab>") 'evil-indent)
 (define-key evil-motion-state-map (kbd "RET") 'nil)
 
 (setcdr evil-insert-state-map nil)
