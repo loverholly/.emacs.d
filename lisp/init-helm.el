@@ -141,10 +141,6 @@
 (define-key helm-gtags-mode-map (kbd "C-c C-g") 'helm-gtags-create-tags)
 ;; (define-key helm-gtags-mode-map (kbd "C-c C-j") 'helm-gtags-find-symbol)
 
-(with-eval-after-load 'helm
-  (define-key helm-map (kbd "j") 'helm-next-line)
-  (define-key helm-map (kbd "k") 'helm-previous-line))
-
 (setq-local imenu-create-index-function #'ggtags-build-imenu-index)
 
 (require-package 'stickyfunc-enhance)
