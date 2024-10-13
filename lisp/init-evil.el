@@ -9,14 +9,24 @@
 (require-package 'goto-chg)
 (require-package 'evil-leader)
 (require-package 'evil-surround)
+(require-package 'evil-snipe)
+(require-package 'evil-matchit)
+(require-package 'evil-anzu)
+(require-package 'evil-collection)
 (require-package 'evil-nerd-commenter)
+
+(setq evil-want-keybinding nil)
+(setq evil-want-C-u-scroll t)
 
 (evil-mode 1)
 (evil-visual-mark-mode 1)
 (global-evil-search-highlight-persist t)
 (powerline-vim-theme)
 (display-time-mode t)
-(global-evil-surround-mode)
+(evil-snipe-mode 1)
+(evil-collection-init)
+(global-evil-matchit-mode 1)
+(global-evil-surround-mode 1)
 (evilnc-default-hotkeys)
 
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
@@ -26,15 +36,11 @@
 
 (setcdr evil-insert-state-map nil)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
-(define-key evil-normal-state-map (kbd "f") (lambda () (interactive) (evil-insert-newline-above) (forward-line)))
-(define-key evil-normal-state-map (kbd "F") (lambda () (interactive) (evil-insert-newline-below) (forward-line -1)))
-(define-key evil-normal-state-map (kbd "m") 'previous-buffer)
-(define-key evil-normal-state-map (kbd "M") 'next-buffer)
-(define-key evil-normal-state-map
-  (kbd "gd") 'helm-gtags-dwim)
+(define-key evil-normal-state-map (kbd ",p") 'previous-buffer)
+(define-key evil-normal-state-map (kbd ",n") 'next-buffer)
 
-(setq evil-want-keybinding nil)
-(setq evil-want-C-u-scroll t)
+(define-key evil-normal-state-map
+	    (kbd "gd") 'helm-gtags-dwim)
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
