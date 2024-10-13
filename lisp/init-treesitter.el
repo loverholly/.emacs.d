@@ -11,17 +11,6 @@
 (setq-default c-ts-mode-indent-offset 8)
 (setq-default c-ts-mode-indent-style 'linux)
 
-(setq major-mode-remap-alist
-      '((yaml-mode . yaml-ts-mode)
-        (sh-mode . bash-ts-mode)
-        (js-mode . js-ts-mode)
-        (css-mode . css-ts-mode)
-        (c-mode . c-ts-mode)
-        (c++-mode . c++-ts-mode)
-        (c-or-c++-mode . c-or-c++-ts-mode)
-        (python-mode . python-ts-mode)))
-
-
 (setq treesit-language-source-alist
       '((bash "https://github.com/tree-sitter/tree-sitter-bash")
 	(cmake "https://github.com/uyha/tree-sitter-cmake")
