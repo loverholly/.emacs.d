@@ -1,6 +1,8 @@
 ;;; init-hippie-expand.el --- Settings for hippie-expand -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
+(require-package 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 (global-set-key (kbd "M-/") 'hippie-expand)
 
