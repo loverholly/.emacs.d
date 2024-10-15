@@ -14,6 +14,7 @@
 (require-package 'evil-anzu)
 (require-package 'evil-collection)
 (require-package 'evil-nerd-commenter)
+(require-package 'evil-org)
 
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
@@ -41,6 +42,7 @@
 
 (define-key evil-normal-state-map
 	    (kbd "gd") 'helm-gtags-dwim)
+(add-hook 'org-mode-hook 'evil-org-mode)
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
