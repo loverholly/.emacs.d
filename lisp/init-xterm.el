@@ -21,5 +21,8 @@
 
 (add-hook 'after-make-console-frame-hooks 'sanityinc/console-frame-setup)
 
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
+
 (provide 'init-xterm)
 ;;; init-xterm.el ends here
