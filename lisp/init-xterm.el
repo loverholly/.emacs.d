@@ -3,6 +3,10 @@
 ;;; Code:
 
 (require 'init-frame-hooks)
+(require-package 'vterm)
+(require-package 'vterm-hotkey)
+(require-package 'vterm-toggle)
+(require-package 'multi-vterm)
 
 (global-set-key [mouse-4] (lambda () (interactive) (scroll-down 1)))
 (global-set-key [mouse-5] (lambda () (interactive) (scroll-up 1)))
