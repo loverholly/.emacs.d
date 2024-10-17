@@ -351,8 +351,6 @@ With arg N, insert N newlines."
 (global-set-key (kbd "RET") 'newline-and-indent)  ; automatically indent when press RET
 (global-set-key (kbd "M-g")  'goto-line)
 
-(global-set-key [f8] 'ansi-term)
-
 (when (eq system-type 'linux)
   (setq shell-file-name "/bin/zsh"))
 

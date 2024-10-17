@@ -27,6 +27,7 @@
 
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
+(global-set-key [f8] 'vterm)
 
 (provide 'init-xterm)
 ;;; init-xterm.el ends here
