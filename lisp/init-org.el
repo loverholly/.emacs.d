@@ -353,6 +353,7 @@ typical word processor."
 
 
 (require-package 'org-pomodoro)
+(require-package 'org-mind-map)
 (setq org-pomodoro-keep-killed-pomodoro-time t)
 (with-eval-after-load 'org-agenda
   (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
