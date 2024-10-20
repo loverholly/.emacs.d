@@ -182,6 +182,7 @@
 (require 'init-log4j)
 (require 'init-ctabs)
 (require 'init-fanyi)
+(require 'init-modeline)
 ;;(require 'init-emojify)
 
 ;; Extra packages which don't require any configuration
