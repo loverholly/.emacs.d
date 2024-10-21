@@ -32,7 +32,7 @@
 
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-(define-key evil-normal-state-map (kbd "<tab>") 'evil-indent)
+(define-key evil-normal-state-map (kbd "<tab>") 'c-indent-line-or-region)
 (define-key evil-motion-state-map (kbd "RET") 'nil)
 
 (setcdr evil-insert-state-map nil)
