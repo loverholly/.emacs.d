@@ -4,6 +4,8 @@
 (require-package 'smart-mode-line)
 
 (setq sml/theme 'respectful)
+(setq sml/vc t)
+(setq sml/vc-mode-show-backend t)
 (sml/setup)
 
 (provide 'init-modeline)
