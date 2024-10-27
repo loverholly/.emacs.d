@@ -18,6 +18,7 @@
 
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
+(setq evil-shift-width 8)
 (global-set-key (kbd "C-x e") 'evil-mode)
 
 (evil-mode 1)
