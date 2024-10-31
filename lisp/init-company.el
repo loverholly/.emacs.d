@@ -26,11 +26,11 @@
     (define-key company-active-map (kbd "M-.") 'company-show-location)
     (setq-default company-dabbrev-other-buffers 'all
                   company-tooltip-align-annotations t
-		  company-minimum-prefix-length 3
+		  company-minimum-prefix-length 1
 		  company-show-numbers t
-		  company-idle-delay 0.0
+		  company-idle-delay 0.2
 		  company-selection-wrap-around t
-		  company-transformers '(company-sort-by-backend-importance)
+		  company-transformers '(company-sort-by-occurrence)
 		  company-backends '((company-clang company-dabbrev-code))))
   (global-set-key (kbd "M-C-/") 'company-complete)
   (when (maybe-require-package 'company-quickhelp)
