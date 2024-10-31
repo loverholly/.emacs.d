@@ -79,7 +79,7 @@
 
 ;;; Newline behaviour
 
-(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "RET") 'indent-new-comment-line)
 (defun sanityinc/newline-at-end-of-line ()
   "Move to end of line, enter a newline, and reindent."
   (interactive)
@@ -348,7 +348,6 @@ With arg N, insert N newlines."
 	(comment-dwim arg)))
 (global-set-key "\M-;" 'qiang-comment-dwim-line)
 
-(global-set-key (kbd "RET") 'newline-and-indent)  ; automatically indent when press RET
 (global-set-key (kbd "M-g")  'goto-line)
 
 (when (eq system-type 'linux)
