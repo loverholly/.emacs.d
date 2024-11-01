@@ -19,14 +19,16 @@
     (define-key company-active-map (kbd "C-p") 'company-select-previous)
     (define-key company-active-map (kbd "C-d") 'company-show-doc-buffer)
     (define-key company-active-map (kbd "M-.") 'company-show-location)
-    (setq-default company-dabbrev-other-buffers 'all
+    (setq company-files-exclusions '(".git/" ".DS_Store"))
+    (setq company-dabbrev-ignore-case 'keep-prefix)
+    (setq-default company-dabbrev-other-buffers t
                   company-tooltip-align-annotations t
 		  company-minimum-prefix-length 1
 		  company-show-numbers t
-		  company-idle-delay 0.2
+		  company-idle-delay 0.0
 		  company-selection-wrap-around t
-		  company-transformers '(company-sort-by-occurrence)
-		  company-backends '((company-clang company-dabbrev-code))))
+		  company-transformers '(delete-consecutive-dups company-sort-by-occurrence)
+		  company-backends '((company-capf company-clang company-dabbrev-code company-keywords company-ispell company-yasnippet))))
   (global-set-key (kbd "M-C-/") 'company-complete)
   (when (maybe-require-package 'company-quickhelp)
     (add-hook 'after-init-hook 'company-quickhelp-mode)))
