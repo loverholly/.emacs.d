@@ -33,11 +33,5 @@
   (when (maybe-require-package 'company-quickhelp)
     (add-hook 'after-init-hook 'company-quickhelp-mode)))
 
-(add-hook 'c-ts-mode-hook 'company-mode)
-(add-hook 'c-mode-hook 'company-mode)
-(add-hook 'c++-mode-hook 'company-mode)
-(add-hook 'c++-ts-mode 'company-mode)
-(add-hook 'after-init-hook 'global-company-mode)
-
 (provide 'init-company)
 ;;; init-company.el ends here
