@@ -28,7 +28,7 @@
 		  company-idle-delay 0.0
 		  company-selection-wrap-around t
 		  company-transformers '(delete-consecutive-dups company-sort-by-occurrence)
-		  company-backends '((company-capf company-clang company-dabbrev-code company-keywords company-ispell company-yasnippet))))
+		  company-backends '((company-tabnine company-capf company-clang company-dabbrev company-tempo company-keywords company-ispell company-yasnippet company-cmake company-files))))
   (global-set-key (kbd "M-C-/") 'company-complete)
   (when (maybe-require-package 'company-quickhelp)
     (add-hook 'after-init-hook 'company-quickhelp-mode)))
