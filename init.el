@@ -69,7 +69,7 @@
 (require 'init-grep)
 (require 'init-uniquify)
 (require 'init-ibuffer)
-(require 'init-flymake)
+(require 'init-flycheck)
 (require 'init-eglot)
 (require 'init-highlight)
 (require 'init-cmake)
@@ -80,7 +80,7 @@
 
 (require 'init-recentf)
 (require 'init-quickrun)
-;;(require 'init-minibuffer)
+(require 'init-minibuffer)
 (require 'init-smex)
 (require 'init-gdb)
 (require 'init-ivy)
