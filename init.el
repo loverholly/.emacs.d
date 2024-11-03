@@ -80,7 +80,6 @@
 
 (require 'init-recentf)
 (require 'init-quickrun)
-(require 'init-minibuffer)
 (require 'init-smex)
 (require 'init-gdb)
 (require 'init-ivy)
