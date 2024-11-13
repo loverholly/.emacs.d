@@ -2,5 +2,6 @@
 ;;; Commentary:
 
 (require-package 'bash-completion)
+(require-package 'multishell)
 
 (provide 'init-bash)
