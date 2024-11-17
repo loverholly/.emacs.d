@@ -9,6 +9,7 @@
 (add-to-list 'completion-styles 'initials t)
 
 (when (maybe-require-package 'company)
+  (maybe-require-package 'company-tabnine)
   (add-hook 'after-init-hook 'global-company-mode)
   (with-eval-after-load 'company
     (diminish 'company-mode)
