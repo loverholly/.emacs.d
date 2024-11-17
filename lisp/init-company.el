@@ -9,7 +9,6 @@
 (add-to-list 'completion-styles 'initials t)
 
 (when (maybe-require-package 'company)
-  (maybe-require-package 'company-tabnine)
   (add-hook 'after-init-hook 'global-company-mode)
   (with-eval-after-load 'company
     (diminish 'company-mode)
@@ -29,7 +28,7 @@
 		  company-idle-delay 0.0
 		  company-selection-wrap-around t
 		  company-transformers '(delete-consecutive-dups company-sort-by-occurrence)
-		  company-backends '((company-yasnippet company-tabnine company-capf company-clang company-dabbrev company-tempo company-keywords company-ispell company-cmake company-files))))
+		  company-backends '((company-yasnippet company-capf company-clang company-dabbrev company-tempo company-keywords company-ispell company-cmake company-files))))
   (global-set-key (kbd "M-C-/") 'company-complete)
   (when (maybe-require-package 'company-quickhelp)
     (add-hook 'after-init-hook 'company-quickhelp-mode)))
