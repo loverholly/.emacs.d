@@ -12,4 +12,7 @@
 (pyim-isearch-mode 1)
 (setq pyim-page-length 5)
 
+(global-set-key (kbd "C-c e") 'pyim-activate)
+(global-set-key (kbd "C-c q") 'pyim-deactivate)
+
 (provide 'init-pyim)
