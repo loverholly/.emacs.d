@@ -80,6 +80,16 @@ instead."
 (when (maybe-require-package 'ivy-xref)
   (setq xref-show-xrefs-function 'ivy-xref-show-xrefs))
 
+(require-package 'ivy-posframe)
+;; display at `ivy-posframe-style'
+(setq ivy-posframe-display-functions-alist
+      '((swiper          . ivy-posframe-display-at-frame-center)
+        (complete-symbol . ivy-posframe-display-at-point)
+        (counsel-M-x     . ivy-posframe-display-at-frame-center)
+	(counsel-find-file . ivy-posframe-display-at-frame-center)
+	(ivy-switch-buffer . ivy-posframe-display-at-frame-center)
+        (t               . ivy-posframe-display-at-frame-center)))
+(ivy-posframe-mode 1)
 
 (provide 'init-ivy)
 ;;; init-ivy.el ends here
