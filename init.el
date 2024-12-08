@@ -103,6 +103,7 @@
 (require 'init-mmm)
 (require 'init-pdf)
 (require 'init-crux)
+(require 'init-keycast)
 
 (require 'init-editing-utils)
 (require 'init-whitespace)
