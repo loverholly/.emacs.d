@@ -51,9 +51,20 @@
       org-export-kill-product-buffer-when-displayed t
       org-tags-column 80)
 
-(setq org-agenda-list (list "~/.emacs.d/org"))
-(setq org-agenda-files (list "~/.emacs.d/org"))
-(setq org-default-notes-file (list "~/.emacs.d/org"))
+(setq org-file-lists '("~/.emacs.d/org"
+		       "~/.emacs.d/org/COMPILER/"
+		       "~/.emacs.d/org/CPU/"
+		       "~/.emacs.d/org/CPU/ARM/"
+		       "~/.emacs.d/org/CPU/PowerPC/"
+		       "~/.emacs.d/org/CPU/ASIC/"
+		       "~/.emacs.d/org/CPU/ZYNQ/"
+		       "~/.emacs.d/org/OS/"
+		       "~/.emacs.d/org/Profibus/"
+		       "~/.emacs.d/org/Program/"
+		       "~/.emacs.d/org/Tools/"))
+(setq org-agenda-list org-file-lists)
+(setq org-agenda-files org-file-lists)
+(setq org-default-notes-file org-file-lists)
 (setq org-agenda-span 'day)
 
 ;; Lots of stuff from http://doc.norang.ca/org-mode.html
