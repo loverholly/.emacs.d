@@ -59,6 +59,7 @@
 		       "~/.emacs.d/org/CPU/ASIC/"
 		       "~/.emacs.d/org/CPU/ZYNQ/"
 		       "~/.emacs.d/org/OS/"
+		       "~/.emacs.d/org/HW/"
 		       "~/.emacs.d/org/Profibus/"
 		       "~/.emacs.d/org/Program/"
 		       "~/.emacs.d/org/Tools/"))
