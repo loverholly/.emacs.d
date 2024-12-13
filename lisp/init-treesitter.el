@@ -38,7 +38,8 @@
 	(c "https://github.com/tree-sitter/tree-sitter-c")
 	(tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
 	(typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-	(yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+	(yaml "https://github.com/ikatyang/tree-sitter-yaml")
+	(zig "https://github.com/GrayJack/tree-sitter-zig")))
 
 (provide 'init-treesitter)
 ;;; init-treesitter.el ends here
