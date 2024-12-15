@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+(require-package 'treesit-auto)
+(require-package 'treesit-ispell)
+(setq-default global-treesit-auto-mode t)
+
 (add-hook 'c-or-c++-mode #'tree-sitter-hl-mode)
 (add-hook 'c-or-c++-ts-mode #'tree-sitter-hl-mode)
 (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
@@ -40,6 +44,7 @@
 	(typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
 	(yaml "https://github.com/ikatyang/tree-sitter-yaml")
 	(zig "https://github.com/GrayJack/tree-sitter-zig")))
+
 
 (provide 'init-treesitter)
 ;;; init-treesitter.el ends here
