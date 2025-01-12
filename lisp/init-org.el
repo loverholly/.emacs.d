@@ -457,6 +457,7 @@ typical word processor."
 (require-package 'xeft)
 (require-package 'org-journal)
 (require-package 'org-roam)
+(require-package 'org-roam-ui)
 (require-package 'org-noter)
 (require-package 'org-gtd)
 (require-package 'org-grep)
