@@ -118,6 +118,7 @@
  )
 
 (require 'helm-gtags)
+(add-hook 'after-save-hook 'gtags-update)
 ;; Enable helm-gtags-mode
 (add-hook 'dired-mode-hook 'helm-gtags-mode)
 (add-hook 'eshell-mode-hook 'helm-gtags-mode)
