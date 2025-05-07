@@ -77,6 +77,7 @@
 (require 'init-evil)
 (require 'init-nhexl)
 (require 'init-iedit)
+(require 'init-rime)
 
 (require 'init-recentf)
 (require 'init-quickrun)
