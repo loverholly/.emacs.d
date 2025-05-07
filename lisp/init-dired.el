@@ -7,6 +7,7 @@
 (require-package 'dired-rsync)
 (require-package 'dired-sidebar)
 (require-package 'ibuffer-sidebar)
+(require-package 'dired-narrow)
 
 (global-set-key (kbd "<f4>") 'dired-sidebar-show-sidebar)
 (setq dired-recursive-copies 'always)
