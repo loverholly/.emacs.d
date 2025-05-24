@@ -15,6 +15,7 @@
 (require-package 'evil-collection)
 (require-package 'evil-nerd-commenter)
 (require-package 'evil-org)
+(require-package 'evil-multiedit)
 
 (setq evil-want-keybinding nil)
 (setq evil-want-C-u-scroll t)
