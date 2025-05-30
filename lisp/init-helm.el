@@ -115,10 +115,10 @@
  helm-gtags-pulse-at-cursor t
  helm-gtags-prefix-key "\C-cg"
  helm-gtags-suggested-key-mapping t
+ helm-gtags-update-interval-second nil
  )
 
 (require 'helm-gtags)
-(add-hook 'after-save-hook 'gtags-update)
 ;; Enable helm-gtags-mode
 (add-hook 'dired-mode-hook 'helm-gtags-mode)
 (add-hook 'eshell-mode-hook 'helm-gtags-mode)
