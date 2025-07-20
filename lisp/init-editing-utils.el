@@ -32,6 +32,7 @@
  fill-column 120
  c-basic-offset 8
  c-default-style "linux"
+ comment-column 0
  create-lockfiles nil
  auto-save-default nil
  make-backup-files nil
