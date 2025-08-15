@@ -5,6 +5,8 @@
 (setq-default grep-highlight-matches t
               grep-scroll-output t)
 
+(when (eq system-type 'linux)
+  (require-package 'projectile-ripgrep))
 
 (when *is-a-mac*
   (setq-default locate-command "mdfind"))
