@@ -12,15 +12,14 @@
 
 (when (maybe-require-package 'git-gutter)
   (maybe-require-package 'git-gutter-fringe)
+  (maybe-require-package 'blamer)
   (add-hook 'after-save-hook        #'git-gutter)
   (add-hook 'after-revert-hook      #'git-gutter)
   (add-hook 'focus-in-hook          #'git-gutter)
 
   (global-git-gutter-mode +1)
-  (global-set-key (kbd "C-x g h") #'git-gutter:toggle)
-  (global-set-key (kbd "C-x g n") #'git-gutter:next-hunk)
-  (global-set-key (kbd "C-x g p") #'git-gutter:previous-hunk)
-  (global-set-key (kbd "C-x g r") #'git-gutter:revert-hunk)
+  (setq blamer-idle-time 0.3)
+  (setq global-blamer-mode 1)
   )
 
 (when (maybe-require-package 'git-timemachine)
