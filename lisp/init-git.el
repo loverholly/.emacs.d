@@ -31,6 +31,8 @@
 (when (maybe-require-package 'magit)
   (maybe-require-package 'vdiff-magit)
   (setq-default magit-diff-refine-hunk 'all)
+  (setq-default magit-wip-after-save-mode t)
+  (setq-default magit-wip-after-apply-mode t)
 
   (sanityinc/fullframe-mode 'magit-status-mode)
 
