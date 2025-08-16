@@ -9,12 +9,28 @@
 ;; TODO: smerge-mode
 (require-package 'git-blamed)
 (require-package 'git-modes)
+
+(when (maybe-require-package 'git-gutter)
+  (maybe-require-package 'git-gutter-fringe)
+  (add-hook 'after-save-hook        #'git-gutter)
+  (add-hook 'after-revert-hook      #'git-gutter)
+  (add-hook 'focus-in-hook          #'git-gutter)
+
+  (global-git-gutter-mode +1)
+  (global-set-key (kbd "C-x g h") #'git-gutter:toggle)
+  (global-set-key (kbd "C-x g n") #'git-gutter:next-hunk)
+  (global-set-key (kbd "C-x g p") #'git-gutter:previous-hunk)
+  (global-set-key (kbd "C-x g r") #'git-gutter:revert-hunk)
+  )
+
 (when (maybe-require-package 'git-timemachine)
   (global-set-key (kbd "C-x v t") 'git-timemachine-toggle))
 
 (require-package 'git-link)
 
+
 (when (maybe-require-package 'magit)
+  (maybe-require-package 'vdiff-magit)
   (setq-default magit-diff-refine-hunk 'all)
 
   (sanityinc/fullframe-mode 'magit-status-mode)
