@@ -19,7 +19,7 @@
 
   (global-git-gutter-mode +1)
   (setq blamer-idle-time 0.3)
-  (setq global-blamer-mode 1)
+  (global-blamer-mode +1)
   )
 
 (when (maybe-require-package 'git-timemachine)
