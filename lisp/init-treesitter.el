@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+(add-to-list 'treesit-extra-load-path
+             (expand-file-name "~/.emacs.d/tree-sitter"))
+
 (require-package 'treesit-auto)
 (require-package 'treesit-ispell)
 (setq-default global-treesit-auto-mode t)
