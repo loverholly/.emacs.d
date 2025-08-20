@@ -56,5 +56,14 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
       (set-fontset-font (frame-parameter nil 'font)
                         charset zh-font))))
 
+(let ((font-name "Google Sans Code")
+      (font-size 12))
+  (when (find-font (font-spec :name font-name))
+    (set-face-attribute 'default nil
+                        :family font-name
+                        :height (* font-size 10))
+    (set-face-attribute 'fixed-pitch nil
+                        :family font-name
+                        :height (* font-size 10))))
 
 (provide 'init-fonts)
