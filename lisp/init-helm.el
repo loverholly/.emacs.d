@@ -1,5 +1,13 @@
 ;; -*- coding: utf-8 -*-
 ;; 加载默认的文件
+
+(when (eq system-type 'windows-nt)
+  (let ((gpath "~/.emacs.d/tools/global/bin"))
+    (setenv "PATH" (concat gpath ";" (getenv "PATH")))
+    (add-to-list 'exec-path gpath)
+    (setq ggtags-executable-directory gpath)
+    (setq ggtags-global-program (expand-file-name "global.exe" gpath))))
+
 (require-package 'helm)
 (require-package 'helm-core)
 (require-package 'helm-gtags)
