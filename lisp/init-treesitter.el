@@ -32,7 +32,8 @@
 	(ruby-mode . ruby-ts-mode)
 	(julia-mode . julia-ts-mode)
 	(csharp-mode . csharp-ts-mode)
-	(org-mode . org-ts-mode)))
+	(org-mode . org-ts-mode)
+	(cmake-mode . cmake-ts-mode)))
 
 (setq treesit-language-source-alist
       '((bash "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-bash")
