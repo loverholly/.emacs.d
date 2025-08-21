@@ -35,6 +35,12 @@
 	(org-mode . org-ts-mode)
 	(cmake-mode . cmake-ts-mode)))
 
+(define-derived-mode regex-ts-mode treesit-generic-mode "Regex"
+  (treesit-parser-create 'regex))
+
+(add-to-list 'auto-mode-alist '("\\.regex\\'" . regex-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.re\\'"    . regex-ts-mode))
+
 (setq treesit-language-source-alist
       '((bash "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-bash")
 	(cmake "https://gh-proxy.com/https://github.com/uyha/tree-sitter-cmake")
@@ -59,7 +65,8 @@
 	(ruby "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-ruby")
 	(julia "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-julia")
 	(csharp "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-c-sharp")
-	(org "https://gh-proxy.com/https://github.com/milisims/tree-sitter-org")))
+	(org "https://gh-proxy.com/https://github.com/milisims/tree-sitter-org")
+	(regex "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-regex")))
 
 
 (provide 'init-treesitter)
