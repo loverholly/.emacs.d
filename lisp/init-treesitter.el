@@ -26,7 +26,13 @@
         (c-mode . c-ts-mode)
         (c++-mode . c++-ts-mode)
         (c-or-c++-mode . c-or-c++-ts-mode)
-        (python-mode . python-ts-mode)))
+        (python-mode . python-ts-mode)
+	(verilog-mode . verilog-ts-mode)
+	(rust-mode . rust-ts-mode)
+	(ruby-mode . ruby-ts-mode)
+	(julia-mode . julia-ts-mode)
+	(csharp-mode . csharp-ts-mode)
+	(org-mode . org-ts-mode)))
 
 (setq treesit-language-source-alist
       '((bash "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-bash")
@@ -46,7 +52,13 @@
 	(tsx "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
 	(typescript "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
 	(yaml "https://gh-proxy.com/https://github.com/ikatyang/tree-sitter-yaml")
-	(zig "https://gh-proxy.com/https://github.com/GrayJack/tree-sitter-zig")))
+	(zig "https://gh-proxy.com/https://github.com/GrayJack/tree-sitter-zig")
+	(verilog "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-verilog")
+	(rust "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-rust")
+	(ruby "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-ruby")
+	(julia "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-julia")
+	(csharp "https://gh-proxy.com/https://github.com/tree-sitter/tree-sitter-c-sharp")
+	(org "https://gh-proxy.com/https://github.com/milisims/tree-sitter-org")))
 
 
 (provide 'init-treesitter)
