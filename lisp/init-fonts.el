@@ -61,9 +61,9 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
   (when (find-font (font-spec :name font-name))
     (set-face-attribute 'default nil
                         :family font-name
-                        :height (* font-size 10))
+                        :height (* font-size 12))
     (set-face-attribute 'fixed-pitch nil
                         :family font-name
-                        :height (* font-size 10))))
+                        :height (* font-size 12))))
 
 (provide 'init-fonts)
