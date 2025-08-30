@@ -17,7 +17,6 @@
   (add-hook 'after-save-hook        #'git-gutter)
   (add-hook 'after-revert-hook      #'git-gutter)
   (add-hook 'focus-in-hook          #'git-gutter)
-
   (global-git-gutter-mode +1)
   (setq blamer-idle-time 0.3)
   (global-blamer-mode +1)
@@ -136,6 +135,23 @@
                    (plist-get commit-info :author-summary))))
 (add-hook 'vc-msg-hook 'vc-msg-hook-setup)
 (global-set-key (kbd "C-c j") 'vc-msg-show)
+
+(defvar my-git-messenger--timer nil
+  "Timer used to delay auto popup.")
+
+(defun my-git-messenger--auto-popup ()
+  "Auto popup git-messenger after cursor is idle for 0.3s."
+  (when my-git-messenger--timer
+    (cancel-timer my-git-messenger--timer))
+  (setq my-git-messenger--timer
+        (run-with-idle-timer
+         5.0 nil
+         (lambda ()
+           (when (and (buffer-file-name)
+                      (vc-git-registered (buffer-file-name)))
+             (git-messenger:popup-message))))))
+
+(add-hook 'post-command-hook #'my-git-messenger--auto-popup)
 
 (provide 'init-git)
 ;;; init-git.el ends here
