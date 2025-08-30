@@ -157,6 +157,7 @@
 (require 'init-common-lisp)
 (require 'init-ssh)
 (require 'init-nyan)
+(require 'init-ai)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
