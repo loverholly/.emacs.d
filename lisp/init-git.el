@@ -13,6 +13,7 @@
 (when (maybe-require-package 'git-gutter)
   (maybe-require-package 'git-gutter-fringe)
   (maybe-require-package 'blamer)
+  (maybe-require-package 'git-messenger)
   (add-hook 'after-save-hook        #'git-gutter)
   (add-hook 'after-revert-hook      #'git-gutter)
   (add-hook 'focus-in-hook          #'git-gutter)
