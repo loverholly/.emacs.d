@@ -113,22 +113,14 @@
 (when (require-package 'rainbow-delimiters)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
-(add-hook 'prog-mode-hook #'hl-todo-mode)
 
 
 (when (fboundp 'global-prettify-symbols-mode)
   (add-hook 'after-init-hook 'global-prettify-symbols-mode))
 
 
-(when (maybe-require-package 'symbol-overlay)
-  (dolist (hook '(prog-mode-hook html-mode-hook yaml-mode-hook conf-mode-hook))
-    (add-hook hook 'symbol-overlay-mode))
-  (with-eval-after-load 'symbol-overlay
-    (diminish 'symbol-overlay-mode)
-    (define-key symbol-overlay-mode-map (kbd "M-i") 'symbol-overlay-put)
-    (define-key symbol-overlay-mode-map (kbd "M-I") 'symbol-overlay-remove-all)
-    (define-key symbol-overlay-mode-map (kbd "M-n") 'symbol-overlay-jump-next)
-    (define-key symbol-overlay-mode-map (kbd "M-p") 'symbol-overlay-jump-prev)))
+(require-package 'hl-todo)
+(add-hook 'prog-mode-hook #'hl-todo-mode)
 
 
 ;;; Zap *up* to char is a handy pair for zap-to-char
