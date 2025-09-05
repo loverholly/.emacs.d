@@ -25,11 +25,15 @@
 
 (add-hook 'after-make-console-frame-hooks 'sanityinc/console-frame-setup)
 
+
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
 (add-hook 'shell-mode-hook 'turn-off-evil-mode)
 (add-hook 'vterm-mode-hook 'turn-off-evil-mode)
 (add-hook 'vterm-mode-hook 'ansi-color-for-comint-mode-on t)
+(add-hook 'vterm-mode-hook
+          (lambda ()
+            (evil-local-mode -1)))   ;; 当前缓冲区直接 kill 掉 evil-local
 (global-set-key [f8] 'vterm)
 
 (provide 'init-xterm)
