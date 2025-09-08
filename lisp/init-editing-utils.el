@@ -17,6 +17,7 @@
 ;;; Some basic preferences
 
 (setq-default
+ default-input-method nil
  blink-cursor-interval 0.4
  bookmark-default-file (locate-user-emacs-file ".bookmarks.el")
  buffers-menu-max-size 30
