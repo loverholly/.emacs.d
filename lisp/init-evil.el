@@ -6,7 +6,6 @@
 (require-package 'evil-visual-replace)
 (require-package 'evil-search-highlight-persist)
 (require-package 'powerline)
-(require-package 'goto-chg)
 (require-package 'evil-leader)
 (require-package 'evil-surround)
 (require-package 'evil-snipe)
