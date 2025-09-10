@@ -32,7 +32,6 @@
 	(ruby-mode . ruby-ts-mode)
 	(julia-mode . julia-ts-mode)
 	(csharp-mode . csharp-ts-mode)
-	(org-mode . org-ts-mode)
 	(cmake-mode . cmake-ts-mode)))
 
 (define-derived-mode regex-ts-mode treesit-generic-mode "Regex"
