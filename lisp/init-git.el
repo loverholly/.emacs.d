@@ -18,7 +18,7 @@
   (add-hook 'after-revert-hook      #'git-gutter)
   (add-hook 'focus-in-hook          #'git-gutter)
   (global-git-gutter-mode +1)
-  (setq blamer-idle-time 1)
+  (setq blamer-idle-time 2)
   (global-blamer-mode +1)
   )
 
