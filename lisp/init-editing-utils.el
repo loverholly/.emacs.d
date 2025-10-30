@@ -43,7 +43,8 @@
  set-mark-command-repeat-pop t
  tooltip-delay 1.5
  truncate-lines nil
- truncate-partial-width-windows nil)
+ truncate-partial-width-windows nil
+ isearch-lazy-count t)
 
 (global-hl-line-mode t)
 (add-hook 'after-init-hook 'delete-selection-mode)
