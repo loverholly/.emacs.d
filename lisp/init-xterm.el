@@ -28,8 +28,6 @@
 
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
-(add-hook 'shell-mode-hook 'turn-off-evil-mode)
-(add-hook 'vterm-mode-hook 'turn-off-evil-mode)
 (add-hook 'vterm-mode-hook 'ansi-color-for-comint-mode-on t)
 (add-hook 'vterm-mode-hook
           (lambda ()
