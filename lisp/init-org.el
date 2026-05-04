@@ -466,6 +466,7 @@ typical word processor."
 (require-package 'org-ref)
 (require-package 'org-projectile)
 (require-package 'org-pdftools)
+(require-package 'org-links)
 (require-package 'org-noter-pdftools)
 
 (setq org-cycle-include-plain-lists 'integrate)
