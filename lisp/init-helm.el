@@ -127,6 +127,7 @@
 (require-package 'stickyfunc-enhance)
 (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
 (setq-local eldoc-documentation-function #'ggtags-eldoc-function)
-(projectile-global-mode)
+(projectile-rails-global-mode)
+;;(projectile-global-mode)
 
 (provide 'init-helm)
