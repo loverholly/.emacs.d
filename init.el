@@ -112,7 +112,7 @@
 (require 'init-darcs)
 (require 'init-git)
 (require 'init-github)
-(require 'init-gcmh)
+;;(require 'init-gcmh)
 
 (require 'init-projectile)
 
