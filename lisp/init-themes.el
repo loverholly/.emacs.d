@@ -24,13 +24,21 @@
 (when (maybe-require-package 'dimmer)
   (setq-default dimmer-fraction 0.15)
   (add-hook 'after-init-hook 'dimmer-mode)
+
   (with-eval-after-load 'dimmer
-    ;; TODO: file upstream as a PR
-    (advice-add 'frame-set-background-mode :after (lambda (&rest args) (dimmer-process-all))))
-  (with-eval-after-load 'dimmer
-    ;; Don't dim in terminal windows. Even with 256 colours it can
-    ;; lead to poor contrast.  Better would be to vary dimmer-fraction
-    ;; according to frame type.
+    ;; Emacs 31 compatibility: skip non-string face attribute values (e.g. foreground-color)
+    (advice-add 'dimmer--dim-face-attribute :around
+                (lambda (orig &rest args)
+                  (let ((face (nth 0 args))
+                        (attribute (nth 1 args)))
+                    (when (stringp (face-attribute face attribute))
+                      (apply orig args)))))
+
+    ;; Refresh all dimmer states after background mode changes
+    (advice-add 'frame-set-background-mode :after
+                (lambda (&rest args) (dimmer-process-all)))
+
+    ;; Do not dim in terminal windows to avoid poor contrast
     (defun sanityinc/display-non-graphic-p ()
       (not (display-graphic-p)))
     (add-to-list 'dimmer-exclusion-predicates 'sanityinc/display-non-graphic-p)))
