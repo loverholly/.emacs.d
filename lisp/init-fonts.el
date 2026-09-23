@@ -57,13 +57,13 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
                         charset zh-font))))
 
 (let ((font-name "Google Sans Code")
-      (font-size 12))
+      (font-size 14))
   (when (find-font (font-spec :name font-name))
     (set-face-attribute 'default nil
                         :family font-name
-                        :height (* font-size 12))
+                        :height (* font-size 14))
     (set-face-attribute 'fixed-pitch nil
                         :family font-name
-                        :height (* font-size 12))))
+                        :height (* font-size 14))))
 
 (provide 'init-fonts)
